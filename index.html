@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이근종 CFP® | 플러스원자문그룹 경영재무컨설팅</title>
+  <meta name="description" content="CFP® 이근종 대표와 세무사 임장환이 함께하는 종합 경영재무 컨설팅. 재무와 세무, 한 곳에서 완성됩니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Variables ─── */
+    :root {
+      --navy-dark:    #0D1B3E;
+      --navy-primary: #1B3A6B;
+      --navy-medium:  #2E5090;
+      --navy-light:   #4A7CC7;
+      --gold:         #C9A84C;
+      --gold-light:   #E8C97A;
+      --white:        #FFFFFF;
+      --gray-bg:      #F4F6FA;
+      --gray-light:   #E8ECF4;
+      --gray-text:    #6B7280;
+      --text-dark:    #1A1A2E;
+      --radius:       12px;
+      --shadow:       0 4px 24px rgba(13,27,62,0.10);
+      --shadow-hover: 0 8px 40px rgba(13,27,62,0.18);
+    }
+
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.7;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Utilities ─── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--navy-light);
+      background: rgba(74,124,199,0.10);
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--navy-dark);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray-text);
+      max-width: 560px;
+    }
+    .gold { color: var(--gold); }
+    .navy { color: var(--navy-primary); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,168,76,0.35); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.12); border-color: var(--white); }
+
+    /* ─── Navigation ─── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    #navbar.scrolled {
+      background: rgba(13,27,62,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .nav-logo .brand { font-size: 18px; font-weight: 800; color: var(--white); }
+    .nav-logo .sub { font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy-dark) !important;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy-dark) !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 60%, var(--navy-medium) 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-decor {
+      position: absolute;
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,124,199,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before { content: '★'; font-size: 12px; }
+    .hero-title {
+      font-size: clamp(32px, 5.5vw, 60px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-desc {
+      font-size: 18px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap;
+    }
+    .hero-stat .num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat .label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+
+    /* ─── Strength ─── */
+    #strength { background: var(--gray-bg); }
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .strength-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      border-top: 4px solid transparent;
+    }
+    .strength-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-top-color: var(--navy-light); }
+    .strength-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--navy-primary), var(--navy-light));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .strength-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--navy-dark); }
+    .strength-card p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ─── Profile ─── */
+    #profile { background: var(--white); }
+    .profile-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 56px;
+    }
+    .profile-card {
+      background: var(--gray-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.3s;
+    }
+    .profile-card:hover { box-shadow: var(--shadow-hover); }
+    .profile-card-header {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy-primary));
+      padding: 36px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .profile-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top; display: block;
+    }
+    .profile-name { color: var(--white); }
+    .profile-name h3 { font-size: 22px; font-weight: 800; }
+    .profile-name .title { font-size: 13px; color: var(--gold-light); margin-top: 4px; font-weight: 500; }
+    .profile-body { padding: 28px 32px; }
+    .profile-list { list-style: none; }
+    .profile-list li {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+    .profile-list li:last-child { border-bottom: none; }
+    .profile-list li::before {
+      content: '✓';
+      color: var(--navy-light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── Services ─── */
+    #services { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); }
+    #services .section-title { color: var(--white); }
+    #services .section-sub { color: rgba(255,255,255,0.65); }
+    #services .section-label { color: var(--gold); background: rgba(201,168,76,0.15); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service-card:hover { background: rgba(255,255,255,0.10); transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-num {
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .service-icon { font-size: 36px; margin-bottom: 16px; }
+    .service-card h3 { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .service-card p { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 20px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .service-tag {
+      font-size: 12px;
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    /* ─── SNS / Insight ─── */
+    #sns { background: var(--gray-bg); }
+    .sns-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 16px; }
+    .sns-channels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .sns-card {
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .sns-card::after {
+      content: '→';
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      font-size: 14px;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    .sns-card:hover::after { opacity: 1; }
+    .sns-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .sns-insta { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: white; }
+    .sns-youtube { background: #FF0000; color: white; }
+    .sns-threads { background: var(--navy-dark); color: white; border: 1px solid rgba(255,255,255,0.1); }
+    .sns-card .sns-icon { font-size: 40px; margin-bottom: 12px; }
+    .sns-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .sns-card p { font-size: 13px; opacity: 0.8; }
+    .sns-card .handle { font-size: 13px; opacity: 0.7; margin-top: 8px; font-family: monospace; }
+    .sns-notice {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--shadow);
+    }
+    .sns-notice-icon { font-size: 32px; flex-shrink: 0; }
+    .sns-notice p { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+    .sns-notice strong { color: var(--navy-primary); }
+
+    /* ─── Contact ─── */
+    #contact { background: var(--white); }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 56px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .contact-info h3 { font-size: 22px; font-weight: 700; color: var(--navy-dark); margin-bottom: 24px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--navy-primary), var(--navy-light));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-item h4 { font-size: 13px; font-weight: 600; color: var(--gray-text); margin-bottom: 4px; }
+    .contact-item a, .contact-item p { font-size: 15px; font-weight: 500; color: var(--navy-dark); }
+    .contact-item a:hover { color: var(--navy-light); }
+    .contact-form {
+      background: var(--gray-bg);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+    .contact-form h3 { font-size: 20px; font-weight: 700; color: var(--navy-dark); margin-bottom: 24px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--navy-primary); margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--gray-light);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--navy-light); box-shadow: 0 0 0 3px rgba(74,124,199,0.12); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--navy-primary), var(--navy-medium));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: linear-gradient(135deg, var(--navy-dark), var(--navy-primary)); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27,58,107,0.35); }
+
+    /* ─── Footer ─── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .footer-brand .brand { font-size: 20px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 280px; }
+    .footer-links h4 { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 12px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+    .footer-social a:hover { background: var(--gold); }
+
+    /* ─── Toast ─── */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--navy-dark);
+      color: white;
+      padding: 16px 24px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s;
+      z-index: 9999;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ─── Scroll to top ─── */
+    #scrollTop {
+      position: fixed;
+      bottom: 32px;
+      left: 32px;
+      width: 44px;
+      height: 44px;
+      background: var(--navy-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s;
+      z-index: 500;
+      box-shadow: var(--shadow);
+    }
+    #scrollTop.show { opacity: 1; }
+    #scrollTop:hover { background: var(--navy-dark); transform: translateY(-2px); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .profile-wrap { grid-template-columns: 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .sns-channels { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px; left: 0; right: 0;
+        background: rgba(13,27,62,0.98);
+        backdrop-filter: blur(12px);
+        padding: 24px;
+        gap: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+      .hero-stats { gap: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .section { padding: 64px 0; }
+      .hero-btns { flex-direction: column; }
+      .btn { justify-content: center; }
+    }
+
+    /* ─── Fade-in animation ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="brand">플러스원자문그룹</span>
+        <span class="sub">이근종 CFP® | 국제공인재무설계사 · 경영컨설턴트</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">소개</a></li>
+        <li><a href="services.html">서비스</a></li>
+        <li><a href="insight.html">인사이트</a></li>
+        <li><a href="consult.html" class="nav-cta">상담 신청</a></li>
+      </ul>
+      <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="hero-decor"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">국제공인재무설계사 CFP® × 세무사 전문 영역</div>
+      <h1 class="hero-title">
+        재무와 세무,<br/>
+        <em>한 곳에서</em> 완성됩니다
+      </h1>
+      <p class="hero-desc">
+        플러스원자문그룹 대표 이근종 CFP®와 세무사 임장환이 함께합니다.<br/>
+        법인과 개인사업자를 위한 완전한 경영재무 솔루션을 제공합니다.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">무료 상담 신청 →</a>
+        <a href="#services" class="btn btn-outline">서비스 알아보기</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">20+</div>
+          <div class="label">년 재무 컨설팅 경력</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">CFP<sup style="font-size:18px">®</sup></div>
+          <div class="label">공인재무설계사 자격</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">법인+개인</div>
+          <div class="label">사업자 전문 관리</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">세무</div>
+          <div class="label">전문 파트너십</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Strength ── -->
+<section id="strength" class="section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">Why SuccessPlan</span>
+      <h2 class="section-title">재무전문가 + 세무사의<br/><span class="gold">결합이 만드는 차이</span></h2>
+      <p class="section-sub">단순한 세금 신고를 넘어, 재무 전략과 세무 최적화를 동시에 설계합니다.</p>
+    </div>
+    <div class="strength-grid">
+      <div class="strength-card fade-in">
+        <div class="strength-icon">📊</div>
+        <h3>종합 재무 설계</h3>
+        <p>CFP® 자격 기반의 체계적인 재무 분석으로 법인과 개인사업자의 재무 건전성을 진단하고 성장 전략을 설계합니다.</p>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon">🧾</div>
+        <h3>세무 컨설팅 특화</h3>
+        <p>세무사와의 직접 파트너십으로 절세 전략 수립부터 세무조사 대응까지, 세무 리스크를 체계적으로 관리합니다.</p>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon">🔗</div>
+        <h3>One-Stop 솔루션</h3>
+        <p>재무 컨설턴트와 세무사가 한 팀으로 움직여, 각 전문가를 따로 찾는 번거로움 없이 일관된 서비스를 받으실 수 있습니다.</p>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon">🎯</div>
+        <h3>경영자 중심 접근</h3>
+        <p>숫자가 아닌 경영자의 목표를 중심에 두고, 현실적이고 실행 가능한 재무·세무 솔루션을 제공합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Profile ── -->
+<section id="profile" class="section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">Meet the Experts</span>
+      <h2 class="section-title">전문가를 소개합니다</h2>
+      <p class="section-sub">각 분야 최고 전문가가 당신의 파트너로 함께합니다.</p>
+    </div>
+    <div class="profile-wrap">
+
+      <!-- 이근종 -->
+      <div class="profile-card fade-in">
+        <div class="profile-card-header">
+          <div class="profile-avatar"><img src="images/leekeunjong.jpg" alt="이근종 CFP®" /></div>
+          <div class="profile-name">
+            <h3>이근종 CFP®</h3>
+            <div class="title">대표 · 국제공인재무설계사(CFP®) · 경영컨설턴트</div>
+          </div>
+        </div>
+        <div class="profile-body">
+          <ul class="profile-list">
+            <li>CFP® 공인재무설계사 (Certified Financial Planner) 자격 보유</li>
+            <li>삼성증권 투자권유대행인·퇴직연금모집인 자격 보유</li>
+            <li>20년 이상 법인 · 개인사업자 재무관리 전문</li>
+            <li>기업 재무구조 진단 및 개선 컨설팅</li>
+            <li>경영자 자산관리 및 재무계획 수립</li>
+            <li>임장환 세무사와 함께 재무·세무 통합 솔루션 제공</li>
+            <li>각 분야의 전문 자격사와 함께 솔루션 제공</li>
+            <li>중기이코노미 LS센터 위험관리 솔루션 제공</li>
+            <!-- 추가 경력이 있으면 여기에 입력하세요 -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- 임장환 세무사 -->
+      <div class="profile-card fade-in">
+        <div class="profile-card-header">
+          <div class="profile-avatar"><img src="images/limjanghwan.jpg" alt="임장환 세무사" /></div>
+          <div class="profile-name">
+            <h3>임장환 세무사</h3>
+            <div class="title">대표세무사 · 김포 바른세무회계사무소</div>
+          </div>
+        </div>
+        <div class="profile-body">
+          <ul class="profile-list">
+            <li>단국대학교 재무회계 박사과정</li>
+            <li>김포지역세무사회 간사</li>
+            <li>한국생산성기술본부 교수</li>
+            <li>인천지방국세청 민생지원 소통추진단 위원</li>
+            <li>김포세무서 영세납세지원단 나눔세무사</li>
+            <li>김포시청 마을세무사 · 결산검사 위원</li>
+            <li>전) 중부지방국세청 국세심사위원</li>
+            <li>전) 인천지방세무사회 연수위원회 위원</li>
+            <li>전) 웅지세무대학 겸임교수 · AIFA경영아카데미 교수</li>
+            <li>전) 국세행정 국민정책참여단 정책혁신 위원</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Services ── -->
+<section id="services" class="section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">제공 서비스</h2>
+      <p class="section-sub">재무와 세무를 아우르는 경영 전반의 전문 컨설팅 서비스입니다.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="service-num">01</div>
+        <div class="service-icon">📈</div>
+        <h3>경영재무 컨설팅</h3>
+        <p>기업의 재무 건전성을 진단하고, 성장 단계별 최적의 재무 전략을 설계합니다. CFP® 전문성으로 경영자의 재무 목표를 현실로 만들어 드립니다.</p>
+        <div class="service-tags">
+          <span class="service-tag">재무구조 진단</span>
+          <span class="service-tag">현금흐름 관리</span>
+          <span class="service-tag">투자 계획</span>
+          <span class="service-tag">자금 조달</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-num">02</div>
+        <div class="service-icon">🧾</div>
+        <h3>세무 컨설팅 (특화)</h3>
+        <p>세무사 파트너와 함께 법인·개인사업자의 절세 전략을 수립합니다. 단순 신고를 넘어 세금을 전략적으로 관리하는 방법을 제시합니다.</p>
+        <div class="service-tags">
+          <span class="service-tag">법인세 최적화</span>
+          <span class="service-tag">부가가치세</span>
+          <span class="service-tag">절세 전략</span>
+          <span class="service-tag">세무조사 대응</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="service-num">03</div>
+        <div class="service-icon">🏢</div>
+        <h3>법인 설립 · 전환 · 경정청구 자문</h3>
+        <p>개인사업자에서 법인으로의 전환 시점과 방법을 재무·세무 관점에서 종합적으로 분석합니다. 최적의 사업 구조를 찾아드립니다.</p>
+        <div class="service-tags">
+          <span class="service-tag">법인 전환 분석</span>
+          <span class="service-tag">사업구조 설계</span>
+          <span class="service-tag">지분 설계</span>
+          <span class="service-tag">경정 청구</span>
+          <span class="service-tag">가업 승계</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SNS / Insight ── -->
+<section id="sns" class="section-sm">
+  <div class="container">
+    <div class="sns-header fade-in">
+      <div>
+        <span class="section-label">Insight &amp; SNS</span>
+        <h2 class="section-title" style="margin-bottom:0">재무·세무 인사이트를<br/>꾸준히 공유하며 함께 성장합니다</h2>
+      </div>
+      <p style="font-size:14px;color:var(--gray-text);max-width:280px;text-align:right;">
+        경영자에게 실질적으로 도움이 되는<br/>재무·세무 정보를 정기적으로 업데이트합니다
+      </p>
+    </div>
+
+    <div class="sns-channels">
+      <!-- Instagram -->
+      <a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener" class="sns-card sns-insta fade-in">
+        <div class="sns-icon">📸</div>
+        <h3>인스타그램</h3>
+        <p>카드뉴스 형식의<br/>재무·세무 핵심 정보</p>
+        <div class="handle">@leekeunjong_cfp</div>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/@plusonecfp" target="_blank" rel="noopener" class="sns-card sns-youtube fade-in">
+        <div class="sns-icon">▶️</div>
+        <h3>유튜브</h3>
+        <p>심층 분석 영상과<br/>경영자를 위한 세무 강의</p>
+        <div class="handle">@plusonecfp</div>
+      </a>
+
+      <!-- Threads -->
+      <a href="https://threads.net/@leekeunjong_cfp" target="_blank" rel="noopener" class="sns-card sns-threads fade-in">
+        <div class="sns-icon">🧵</div>
+        <h3>쓰레드</h3>
+        <p>짧고 날카로운<br/>재무·세무 인사이트</p>
+        <div class="handle">@leekeunjong_cfp</div>
+      </a>
+    </div>
+
+    <div class="sns-notice fade-in">
+      <div class="sns-notice-icon">💡</div>
+      <p>
+        <strong>정기 업데이트 콘텐츠</strong>: 세법 개정 정보, 절세 팁, 법인 운영 노하우, 경영자 재무 관리 체크리스트 등<br/>
+        구독하시면 경영자에게 꼭 필요한 재무·세무 정보를 가장 먼저 받아보실 수 있습니다.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">Contact</span>
+      <h2 class="section-title">상담 문의</h2>
+      <p class="section-sub">재무·세무에 관한 고민이 있으시면 언제든지 연락주세요.<br/>첫 상담은 무료로 진행합니다.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <!-- Contact Info -->
+      <div class="contact-info fade-in">
+        <h3>연락처 안내</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>전화 상담</h4>
+            <a href="tel:010-5170-8020">010-5170-8020</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">💛</div>
+          <div>
+            <h4>카카오 채널</h4>
+            <a href="http://pf.kakao.com/_VHesX" target="_blank" rel="noopener">카카오채널 바로가기</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <h4>이메일</h4>
+            <a href="mailto:ceo@successplan.co.kr">ceo@successplan.co.kr</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🏢</div>
+          <div>
+            <h4>파트너 사무소</h4>
+            <p>바른세무회계 (김포)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form fade-in">
+        <h3>온라인 상담 신청</h3>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">성함 *</label>
+              <input type="text" id="name" name="name" placeholder="홍길동" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">연락처 *</label>
+              <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" />
+          </div>
+          <div class="form-group">
+            <label for="type">상담 유형 *</label>
+            <select id="type" name="type" required>
+              <option value="">선택해 주세요</option>
+              <option value="tax">세무 컨설팅</option>
+              <option value="finance">경영재무 컨설팅</option>
+              <option value="corp">법인 설립·전환·경정청구</option>
+              <option value="etc">기타</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">문의 내용</label>
+            <textarea id="message" name="message" placeholder="궁금하신 내용을 자유롭게 작성해 주세요."></textarea>
+          </div>
+          <button type="submit" class="form-submit">상담 신청하기 →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand">플러스원자문그룹 주식회사</div>
+        <p>대표 이근종 CFP® | 국제공인재무설계사 <br/>재무와 세무, 한 곳에서 완성됩니다.</p>
+      </div>
+      <div class="footer-links">
+        <h4>메뉴</h4>
+        <ul>
+          <li><a href="#strength">전문성 소개</a></li>
+          <li><a href="#profile">전문가 소개</a></li>
+          <li><a href="#services">서비스</a></li>
+          <li><a href="#sns">인사이트</a></li>
+          <li><a href="#contact">상담 문의</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>서비스</h4>
+        <ul>
+          <li><a href="#services">경영재무 컨설팅</a></li>
+          <li><a href="#services">세무 컨설팅</a></li>
+          <li><a href="#services">법인 설립·전환 자문</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>SNS</h4>
+        <ul>
+          <li><a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener">인스타그램</a></li>
+          <li><a href="https://youtube.com/@plusonecfp" target="_blank" rel="noopener">유튜브</a></li>
+          <li><a href="https://threads.net/@leekeunjong_cfp" target="_blank" rel="noopener">쓰레드</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 플러스원자문그룹 주식회사 | 대표 이근종 CFP® | <a href="mailto:ceo@successplan.co.kr" style="color:inherit;">ceo@successplan.co.kr</a></p>
+      <div class="footer-social">
+        <a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener" title="Instagram">📸</a>
+        <a href="https://youtube.com/@plusonecfp" target="_blank" rel="noopener" title="YouTube">▶</a>
+        <a href="https://threads.net/@leekeunjong_cfp" target="_blank" rel="noopener" title="Threads">🧵</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  // ── Navbar scroll effect ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+  });
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // ── Fade-in on scroll ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Contact form ──
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '전송 중...';
+    btn.disabled = true;
+
+    // 실제 운영 시 이 부분을 Formspree, EmailJS 등으로 교체하세요
+    setTimeout(() => {
+      showToast('✅ 상담 신청이 완료되었습니다! 곧 연락드리겠습니다.');
+      e.target.reset();
+      btn.textContent = '상담 신청하기 →';
+      btn.disabled = false;
+    }, 1200);
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+</script>
+</body>
+</html>

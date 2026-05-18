@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>인사이트 | 플러스원자문그룹 주식회사</title>
+  <meta name="description" content="경영자를 위한 재무·세무 인사이트. 인스타그램, 유튜브, 쓰레드에서 정기 업데이트됩니다." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ─── SNS 채널 카드 ─── */
+    .sns-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+    .sns-channel-card {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); transition: all 0.3s; display: block;
+    }
+    .sns-channel-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .sns-ch-header { padding: 32px 28px; color: white; }
+    .sns-ch-header .ch-icon { font-size: 44px; margin-bottom: 12px; }
+    .sns-ch-header h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .sns-ch-header .handle { font-size: 13px; opacity: 0.75; font-family: monospace; margin-bottom: 12px; }
+    .sns-ch-header p { font-size: 14px; opacity: 0.85; line-height: 1.6; }
+    .sns-insta .sns-ch-header { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .sns-youtube .sns-ch-header { background: linear-gradient(135deg, #c4302b, #ff0000); }
+    .sns-threads .sns-ch-header { background: linear-gradient(135deg, var(--navy-dark), #2a2a3e); }
+    .sns-ch-body { padding: 20px 28px; background: var(--white); }
+    .sns-ch-topics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .topic-tag {
+      font-size: 12px; padding: 4px 12px; border-radius: 50px;
+      background: var(--gray-bg); color: var(--navy-primary); font-weight: 600;
+    }
+    .sns-ch-link {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 14px; font-weight: 700; color: var(--navy-primary);
+      padding: 10px 0; border-top: 1px solid var(--gray-light);
+    }
+
+    /* ─── 콘텐츠 샘플 카드 ─── */
+    .content-section { background: var(--gray-bg); }
+    .content-filter { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 50px; font-size: 13px; font-weight: 600;
+      border: 2px solid var(--gray-light); background: var(--white);
+      color: var(--gray-text); cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--navy-primary); background: var(--navy-primary); color: white;
+    }
+    .content-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .content-card {
+      background: var(--white); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); transition: all 0.3s;
+    }
+    .content-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .content-thumb {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 48px;
+    }
+    .thumb-tax   { background: linear-gradient(135deg, #e8f4fd, #d0e8f7); }
+    .thumb-fin   { background: linear-gradient(135deg, #e8f7e8, #d0f0d0); }
+    .thumb-corp  { background: linear-gradient(135deg, #fdf4e8, #f7e8d0); }
+    .thumb-asset { background: linear-gradient(135deg, #f4e8fd, #e8d0f7); }
+    .content-body { padding: 20px; }
+    .content-meta { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
+    .content-cat {
+      font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px;
+    }
+    .cat-tax   { background: rgba(74,124,199,0.12); color: var(--navy-primary); }
+    .cat-fin   { background: rgba(40,167,69,0.12); color: #28a745; }
+    .cat-corp  { background: rgba(201,168,76,0.15); color: #a07a20; }
+    .cat-asset { background: rgba(156,39,176,0.10); color: #7b1fa2; }
+    .content-date { font-size: 12px; color: var(--gray-text); }
+    .content-card h3 { font-size: 15px; font-weight: 700; color: var(--navy-dark); line-height: 1.5; margin-bottom: 8px; }
+    .content-card p { font-size: 13px; color: var(--gray-text); line-height: 1.6; margin-bottom: 12px; }
+    .content-platform { font-size: 12px; color: var(--gray-text); display: flex; align-items: center; gap: 4px; }
+
+    /* ─── 뉴스레터 ─── */
+    .newsletter-section { background: var(--white); }
+    .newsletter-box {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy-primary));
+      border-radius: var(--radius); padding: 56px; text-align: center;
+      max-width: 640px; margin: 0 auto;
+    }
+    .newsletter-box h2 { font-size: 26px; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+    .newsletter-box p { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 32px; line-height: 1.7; }
+    .newsletter-form { display: flex; gap: 12px; }
+    .newsletter-form input {
+      flex: 1; padding: 14px 18px; border-radius: 50px; border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1); color: white; font-size: 14px; font-family: inherit;
+      outline: none; transition: border-color 0.2s;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+    .newsletter-form input:focus { border-color: var(--gold); }
+    .newsletter-form button {
+      padding: 14px 28px; border-radius: 50px; border: none;
+      background: var(--gold); color: var(--navy-dark);
+      font-size: 14px; font-weight: 700; font-family: inherit;
+      cursor: pointer; white-space: nowrap; transition: all 0.25s;
+    }
+    .newsletter-form button:hover { background: var(--gold-light); }
+    .newsletter-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 12px; }
+
+    @media (max-width: 900px) {
+      .sns-grid { grid-template-columns: 1fr; }
+      .content-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-box { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── 네비게이션 ── -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="brand">플러스원자문그룹</span>
+        <span class="sub">이근종 CFP® | 국제공인재무설계사 · 경영컨설턴트</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="about.html">소개</a></li>
+        <li><a href="services.html">서비스</a></li>
+        <li><a href="insight.html" class="active">인사이트</a></li>
+        <li><a href="consult.html" class="nav-cta">상담 신청</a></li>
+      </ul>
+      <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── 페이지 히어로 ── -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-breadcrumb">
+        <a href="index.html">홈</a> / <span>인사이트</span>
+      </div>
+      <h1>경영자를 위한<br/>재무·세무 인사이트</h1>
+      <p>세법 개정, 절세 전략, 법인 운영 노하우를 꾸준히 공유합니다.<br/>인스타그램 · 유튜브 · 쓰레드에서 만나세요.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SNS 채널 ── -->
+<section class="section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">SNS Channels</span>
+      <h2 class="section-title">채널별 콘텐츠를 확인하세요</h2>
+      <p class="section-sub">플랫폼마다 다른 형식으로, 같은 핵심 정보를 전달합니다.</p>
+    </div>
+    <div class="sns-grid">
+
+      <a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener" class="sns-channel-card sns-insta fade-in">
+        <div class="sns-ch-header">
+          <div class="ch-icon">📸</div>
+          <h3>인스타그램</h3>
+          <div class="handle">@leekeunjong_cfp</div>
+          <p>카드뉴스 형식으로 핵심만 빠르게.<br/>스크롤하다 바로 이해되는 재무·세무 정보.</p>
+        </div>
+        <div class="sns-ch-body">
+          <div class="sns-ch-topics">
+            <span class="topic-tag">#절세팁</span>
+            <span class="topic-tag">#법인운영</span>
+            <span class="topic-tag">#세금신고</span>
+            <span class="topic-tag">#CFP인사이트</span>
+          </div>
+          <div class="sns-ch-link">
+            <span>팔로우하기</span>
+            <span>→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://youtube.com/@plusonecfp" target="_blank" rel="noopener" class="sns-channel-card sns-youtube fade-in">
+        <div class="sns-ch-header">
+          <div class="ch-icon">▶️</div>
+          <h3>유튜브</h3>
+          <div class="handle">@plusonecfp</div>
+          <p>심층 분석 영상으로 깊게 이해하기.<br/>경영자를 위한 세무·재무 강의 콘텐츠.</p>
+        </div>
+        <div class="sns-ch-body">
+          <div class="sns-ch-topics">
+            <span class="topic-tag">#세무강의</span>
+            <span class="topic-tag">#재무설계</span>
+            <span class="topic-tag">#법인전환</span>
+            <span class="topic-tag">#사업자금융</span>
+          </div>
+          <div class="sns-ch-link">
+            <span>구독하기</span>
+            <span>→</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="https://threads.net/@leekeunjong_cfp" target="_blank" rel="noopener" class="sns-channel-card sns-threads fade-in">
+        <div class="sns-ch-header">
+          <div class="ch-icon">🧵</div>
+          <h3>쓰레드</h3>
+          <div class="handle">@leekeunjong_cfp</div>
+          <p>짧고 날카로운 재무·세무 인사이트.<br/>오늘의 세금 이슈를 한 문장으로.</p>
+        </div>
+        <div class="sns-ch-body">
+          <div class="sns-ch-topics">
+            <span class="topic-tag">#세법개정</span>
+            <span class="topic-tag">#오늘의세금</span>
+            <span class="topic-tag">#경영인사이트</span>
+          </div>
+          <div class="sns-ch-link">
+            <span>팔로우하기</span>
+            <span>→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 추천 콘텐츠 ── -->
+<section class="section content-section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">Featured Content</span>
+      <h2 class="section-title">추천 콘텐츠</h2>
+      <p class="section-sub" style="margin-bottom:32px;">경영자에게 꼭 필요한 핵심 주제를 다룬 콘텐츠입니다.</p>
+      <div class="content-filter">
+        <button class="filter-btn active">전체</button>
+        <button class="filter-btn">세무</button>
+        <button class="filter-btn">재무</button>
+        <button class="filter-btn">법인</button>
+        <button class="filter-btn">자산관리</button>
+      </div>
+    </div>
+    <div class="content-grid">
+
+      <div class="content-card fade-in">
+        <div class="content-thumb thumb-tax">🧾</div>
+        <div class="content-body">
+          <div class="content-meta">
+            <span class="content-cat cat-tax">세무</span>
+            <span class="content-date">업데이트 예정</span>
+          </div>
+          <h3>2025년 세법 개정 핵심 요약 — 법인 대표가 꼭 알아야 할 5가지</h3>
+          <p>올해 달라지는 법인세, 소득세, 부가세 주요 변경사항을 정리합니다.</p>
+          <div class="content-platform">📸 인스타그램</div>
+        </div>
+      </div>
+
+      <div class="content-card fade-in">
+        <div class="content-thumb thumb-fin">📊</div>
+        <div class="content-body">
+          <div class="content-meta">
+            <span class="content-cat cat-fin">재무</span>
+            <span class="content-date">업데이트 예정</span>
+          </div>
+          <h3>법인 현금흐름표 읽는 법 — 숫자 뒤에 숨은 진짜 이야기</h3>
+          <p>재무제표 중 가장 중요하지만 가장 외면받는 현금흐름표, 이렇게 읽으세요.</p>
+          <div class="content-platform">▶️ 유튜브</div>
+        </div>
+      </div>
+
+      <div class="content-card fade-in">
+        <div class="content-thumb thumb-corp">🏢</div>
+        <div class="content-body">
+          <div class="content-meta">
+            <span class="content-cat cat-corp">법인</span>
+            <span class="content-date">업데이트 예정</span>
+          </div>
+          <h3>연 매출 3억 넘으면 법인 전환 고려해야 하는 이유</h3>
+          <p>개인사업자와 법인의 세금 차이, 시뮬레이션으로 쉽게 비교합니다.</p>
+          <div class="content-platform">🧵 쓰레드</div>
+        </div>
+      </div>
+
+      <div class="content-card fade-in">
+        <div class="content-thumb thumb-tax">💰</div>
+        <div class="content-body">
+          <div class="content-meta">
+            <span class="content-cat cat-tax">세무</span>
+            <span class="content-date">업데이트 예정</span>
+          </div>
+          <h3>대표이사 급여는 얼마가 적정할까? — 절세 관점의 임원 보수 설계</h3>
+          <p>급여가 너무 높아도, 낮아도 세금 손해입니다. 최적 구간을 찾아드립니다.</p>
+          <div class="content-platform">📸 인스타그램</div>
+        </div>
+      </div>
+
+      <div class="content-card fade-in">
+        <div class="content-thumb thumb-asset">🏦</div>
+        <div class="content-body">
+          <div class="content-meta">
+            <span class="content-cat cat-asset">자산관리</span>
+            <span class="content-date">업데이트 예정</span>
+          </div>
+          <h3>CFP®가 말하는 경영자 자산관리 3원칙 — 사업과 개인을 분리하라</h3>
+          <p>사업 소득을 개인 자산으로 이전하는 올바른 방법과 리스크 관리 전략.</p>
+          <div class="content-platform">▶️ 유튜브</div>
+        </div>
+      </div>
+
+      <div class="content-card fade-in">
+        <div class="content-thumb thumb-corp">📋</div>
+        <div class="content-body">
+          <div class="content-meta">
+            <span class="content-cat cat-corp">법인</span>
+            <span class="content-date">업데이트 예정</span>
+          </div>
+          <h3>가족 법인 활용 절세 전략 — 합법적으로 가능한 방법들</h3>
+          <p>가족을 임원이나 주주로 활용하는 절세 방법, 세무 리스크와 함께 정리합니다.</p>
+          <div class="content-platform">🧵 쓰레드</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── 뉴스레터 ── -->
+<section class="section newsletter-section">
+  <div class="container">
+    <div class="newsletter-box fade-in">
+      <h2>📬 인사이트 알림 받기</h2>
+      <p>새 콘텐츠가 올라올 때 가장 먼저 알림을 받으세요.<br/>세법 개정, 절세 팁, 경영 재무 정보를 이메일로 전달해 드립니다.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <input type="email" placeholder="이메일 주소를 입력하세요" required />
+        <button type="submit">구독하기</button>
+      </form>
+      <div class="newsletter-note">스팸 없이 꼭 필요한 정보만 보내드립니다. 언제든지 구독 취소 가능합니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>콘텐츠를 보다 더 궁금한 게 생기셨나요?</h2>
+    <p>직접 상담으로 우리 회사 상황에 맞는 답을 찾아드립니다.</p>
+    <div class="cta-btns">
+      <a href="consult.html" class="btn btn-primary">무료 상담 신청 →</a>
+      <a href="tel:010-5170-8020" class="btn btn-outline">010-5170-8020</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 푸터 ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand">플러스원자문그룹 주식회사</div>
+        <p>대표 이근종 CFP® | 국제공인재무설계사 <br/>재무와 세무, 한 곳에서 완성됩니다.</p>
+      </div>
+      <div class="footer-links">
+        <h4>메뉴</h4>
+        <ul>
+          <li><a href="about.html">소개</a></li>
+          <li><a href="services.html">서비스</a></li>
+          <li><a href="insight.html">인사이트</a></li>
+          <li><a href="consult.html">상담 신청</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>서비스</h4>
+        <ul>
+          <li><a href="services.html#finance">경영재무 컨설팅</a></li>
+          <li><a href="services.html#tax">세무 컨설팅</a></li>
+          <li><a href="services.html#corp">법인 설립·전환 자문</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>SNS</h4>
+        <ul>
+          <li><a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener">인스타그램</a></li>
+          <li><a href="https://youtube.com/@plusonecfp" target="_blank" rel="noopener">유튜브</a></li>
+          <li><a href="https://threads.net/@leekeunjong_cfp" target="_blank" rel="noopener">쓰레드</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 플러스원자문그룹 주식회사 | 대표 이근종 CFP® | <a href="mailto:ceo@successplan.co.kr" style="color:inherit;">ceo@successplan.co.kr</a></p>
+      <div class="footer-social">
+        <a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener">📸</a>
+        <a href="https://youtube.com/@plusonecfp" target="_blank" rel="noopener">▶</a>
+        <a href="https://threads.net/@leekeunjong_cfp" target="_blank" rel="noopener">🧵</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
+<div class="toast" id="toast"></div>
+<script>
+  const navbar = document.getElementById('navbar');
+  navbar.classList.add('solid');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+  });
+  function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+  document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '구독 완료!';
+    btn.style.background = '#28a745';
+    setTimeout(() => { btn.textContent = '구독하기'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+</script>
+</body>
+</html>
