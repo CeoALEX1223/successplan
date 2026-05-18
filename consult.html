@@ -438,6 +438,7 @@
   </div>
 </footer>
 
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
 <div class="toast" id="toast"></div>
 <script>
@@ -479,41 +480,41 @@
     const topics = [...form.querySelectorAll('input[name="topic"]:checked')]
       .map(cb => cb.value).join(', ');
 
-    const payload = {
-      name:     form.name.value,
-      phone:    form.phone.value,
-      email:    form.email.value,
-      bizType:  form.bizType.value,
-      topics:   topics,
-      revenue:  form.revenue.value,
-      message:  form.message.value
+    // 히든 iframe에 폼 제출 (CORS 완전 우회)
+    const fields = {
+      name:    form.name.value,
+      phone:   form.phone.value,
+      email:   form.email.value,
+      bizType: form.bizType.value,
+      topics:  topics,
+      revenue: form.revenue.value,
+      message: form.message.value
     };
 
-    var params = new URLSearchParams();
-    params.append('name',    payload.name);
-    params.append('phone',   payload.phone);
-    params.append('email',   payload.email);
-    params.append('bizType', payload.bizType);
-    params.append('topics',  payload.topics);
-    params.append('revenue', payload.revenue);
-    params.append('message', payload.message);
+    const tempForm = document.createElement('form');
+    tempForm.method = 'POST';
+    tempForm.action = SCRIPT_URL;
+    tempForm.target = 'hidden_iframe';
+    tempForm.style.display = 'none';
 
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: params
-    })
-    .then(() => {
+    for (const [key, val] of Object.entries(fields)) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = val;
+      tempForm.appendChild(input);
+    }
+
+    document.body.appendChild(tempForm);
+    tempForm.submit();
+    document.body.removeChild(tempForm);
+
+    setTimeout(() => {
       document.getElementById('successOverlay').classList.add('show');
       form.reset();
       btn.textContent = '상담 신청하기 →';
       btn.disabled = false;
-    })
-    .catch(() => {
-      alert('전송 중 오류가 발생했습니다. 전화(010-5170-8020) 또는 카카오채널로 연락 주세요.');
-      btn.textContent = '상담 신청하기 →';
-      btn.disabled = false;
-    });
+    }, 1000);
   }
 </script>
 </body>
