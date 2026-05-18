@@ -489,11 +489,19 @@
       message:  form.message.value
     };
 
+    var params = new URLSearchParams();
+    params.append('name',    payload.name);
+    params.append('phone',   payload.phone);
+    params.append('email',   payload.email);
+    params.append('bizType', payload.bizType);
+    params.append('topics',  payload.topics);
+    params.append('revenue', payload.revenue);
+    params.append('message', payload.message);
+
     fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(payload)
+      body: params
     })
     .then(() => {
       document.getElementById('successOverlay').classList.add('show');
