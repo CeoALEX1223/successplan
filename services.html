@@ -97,6 +97,36 @@
     .process-step h3 { font-size: 15px; font-weight: 700; color: var(--navy-dark); margin-bottom: 8px; }
     .process-step p { font-size: 13px; color: var(--gray-text); line-height: 1.6; }
 
+    /* ─── 경정청구 강조 박스 ─── */
+    .refund-highlight {
+      background: linear-gradient(135deg, rgba(34,139,34,0.07), rgba(46,160,67,0.05));
+      border: 1px solid rgba(34,139,34,0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .refund-highlight h4 { font-size: 13px; font-weight: 800; color: #1a6b1a; margin-bottom: 12px; letter-spacing: 0.05em; }
+    .refund-point { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; margin-bottom: 8px; color: var(--text-dark); }
+    .refund-point:last-child { margin-bottom: 0; }
+    .refund-point strong { color: #1a6b1a; }
+    .service-sub-divider {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--navy-primary); background: rgba(74,124,199,0.08);
+      padding: 6px 14px; border-radius: 50px; margin: 20px 0 12px;
+      display: inline-block;
+    }
+    .refund-process {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px;
+    }
+    .refund-step {
+      background: var(--white); border: 1px solid var(--gray-light);
+      border-radius: 10px; padding: 12px 10px; text-align: center;
+    }
+    .refund-step .rs-num { font-size: 20px; font-weight: 800; color: var(--gold); line-height: 1; }
+    .refund-step .rs-title { font-size: 12px; font-weight: 700; color: var(--navy-dark); margin: 4px 0; }
+    .refund-step .rs-desc { font-size: 11px; color: var(--gray-text); line-height: 1.4; }
+    @media (max-width: 640px) { .refund-process { grid-template-columns: 1fr 1fr; } }
+
     /* ─── 법무·노무 서비스 컬러 ─── */
     .service-detail.legal  { border-left: none; }
     .service-detail.legal  .service-num-big { color: rgba(92,53,160,0.12); }
@@ -268,18 +298,33 @@
       <div>
         <div class="service-num-big">03</div>
         <div class="service-icon-big">🏢</div>
-        <h2>법인 설립·전환·경정청구 자문<br/></h2>
-        <p class="lead">재무·세무 두 관점으로<br/>최적의 사업구조를 설계합니다</p>
+        <h2>법인 설립·전환 &amp;<br/>경정청구 세금환급</h2>
+        <p class="lead">재무·세무 두 관점으로<br/>최적의 사업구조 설계 + 과납 세금 환급</p>
         <div style="margin-top:16px;">
           <span class="target-tag">🧑‍💼 법인 전환을 고민 중인 개인사업자</span>
           <span class="target-tag">🌱 창업 준비 중인 예비 대표</span>
           <span class="target-tag">🏦 가업 승계를 준비 중인 기업주</span>
+          <span class="target-tag" id="refund">💰 지난 5년간 세금을 과납한 법인·개인사업자</span>
+        </div>
+
+        <!-- 경정청구 핵심 포인트 -->
+        <div class="refund-highlight" style="margin-top:24px;">
+          <h4>💡 경정청구(세금환급)란?</h4>
+          <p style="font-size:13px; color:var(--gray-text); line-height:1.7; margin-bottom:14px;">
+            국세기본법 제45조의 2에 따라, 지난 <strong>5년간</strong> 과납한 세금을
+            과세관청에 환급 신청할 수 있는 납세자의 권리입니다.
+            연간 국세환급금 규모가 <strong>85조 원</strong>에 달하지만 신청하지 않으면 환급받을 수 없습니다.
+          </p>
+          <div class="refund-point">✅ <span><strong>세무조사 대상이 아닙니다</strong> — 경정청구만을 이유로 세무조사를 진행할 수 없습니다 (대법원 2012두0911)</span></div>
+          <div class="refund-point">✅ <span><strong>환급 완료 전 비용 없음</strong> — 선수금·착수금·중간수수료 없는 완전 성공보수 방식</span></div>
+          <div class="refund-point">✅ <span><strong>5년 소급 적용</strong> — 최근 5개년도 신고분 전체에 대해 환급 가능 금액 검토</span></div>
         </div>
       </div>
       <div>
+        <span class="service-sub-divider">법인 설립 · 전환 자문</span>
         <p class="desc">
           법인 설립이나 개인→법인 전환은 타이밍과 방법이 중요합니다.
-          재무전문가와 세무사가 함께 시뮬레이션하여 어떤 구조가 세금·재무 양면에서 유리한지
+          재무전문가와 세무사가 함께 시뮬레이션하여 세금·재무 양면에서 유리한 구조를
           객관적인 수치로 비교 분석합니다.
         </p>
         <div class="service-items">
@@ -293,22 +338,67 @@
           <div class="service-item">
             <div class="si-icon">🏗️</div>
             <div>
-              <h4>사업구조 설계</h4>
-              <p>지분 구조, 임원 보수 설계, 가족 법인 활용 등 절세형 사업구조 설계</p>
+              <h4>사업구조 · 가업승계 설계</h4>
+              <p>지분·임원보수·가족법인 활용 등 절세형 사업구조 설계 및 장기 승계 플랜 수립</p>
+            </div>
+          </div>
+        </div>
+
+        <span class="service-sub-divider" style="margin-top:24px;">경정청구 · 세금환급 서비스</span>
+        <div class="service-items">
+          <div class="service-item">
+            <div class="si-icon">🔍</div>
+            <div>
+              <h4>환급 가능 금액 무료 진단</h4>
+              <p>최근 5개년도 세무조정계산서·계정별원장 검토를 통해 환급 예상액 산정 및 무료 안내</p>
             </div>
           </div>
           <div class="service-item">
-            <div class="si-icon">🔄</div>
+            <div class="si-icon">📋</div>
             <div>
-              <h4>전환 절차 지원</h4>
-              <p>법인 설립 등기부터 사업자 등록, 기존 계약 이전까지 전 과정 지원</p>
+              <h4>경정청구 신청 대리</h4>
+              <p>업종별 전문 세무사가 환급 청구서 작성·세무서 접수·조사관 대응까지 전 과정 대리 수행</p>
             </div>
           </div>
           <div class="service-item">
-            <div class="si-icon">🏛️</div>
+            <div class="si-icon">🛡️</div>
             <div>
-              <h4>가업 승계 설계</h4>
-              <p>가업 승계 증여세·상속세 절감을 위한 장기 승계 플랜 수립</p>
+              <h4>세무서 검토 대응</h4>
+              <p>세무서 조사관 검토(최대 2개월) 시 조사 자료 작성 및 대응 수행 — 경정청구는 세무조사 대상이 아닙니다</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon">💰</div>
+            <div>
+              <h4>환급금 수령 완료</h4>
+              <p>관할 세무서 검토 완료 후 지정 계좌 환급금 입금 확인 — 환급 완료 시점에만 성공보수 발생</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 경정청구 4단계 프로세스 -->
+        <div style="margin-top:20px; padding:18px; background:var(--gray-bg); border-radius:12px;">
+          <p style="font-size:12px; font-weight:800; color:var(--navy-primary); letter-spacing:0.08em; margin-bottom:12px;">📌 경정청구 진행 4단계</p>
+          <div class="refund-process">
+            <div class="refund-step">
+              <div class="rs-num">01</div>
+              <div class="rs-title">서류 검토</div>
+              <div class="rs-desc">5개년 세무조정계산서·계정별원장 등 확인</div>
+            </div>
+            <div class="refund-step">
+              <div class="rs-num">02</div>
+              <div class="rs-title">금액 산정</div>
+              <div class="rs-desc">예상 환급액 산정 후 안내 및 세무서 접수</div>
+            </div>
+            <div class="refund-step">
+              <div class="rs-num">03</div>
+              <div class="rs-title">세무서 검토</div>
+              <div class="rs-desc">조사관 검토 및 자료 대응 (최대 2개월)</div>
+            </div>
+            <div class="refund-step">
+              <div class="rs-num">04</div>
+              <div class="rs-title">환급 완료</div>
+              <div class="rs-desc">환급 통지서 수령 후 계좌 입금 확인</div>
             </div>
           </div>
         </div>
@@ -494,6 +584,7 @@
           <li><a href="services.html#finance">경영재무 컨설팅</a></li>
           <li><a href="services.html#tax">세무 컨설팅</a></li>
           <li><a href="services.html#corp">법인 설립·전환 자문</a></li>
+          <li><a href="services.html#refund">경정청구·세금환급</a></li>
           <li><a href="services.html#legal">법무 컨설팅</a></li>
           <li><a href="services.html#labor">노무 컨설팅</a></li>
         </ul>
