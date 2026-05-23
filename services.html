@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>서비스 | 플러스원자문그룹 주식회사</title>
-  <meta name="description" content="경영재무 컨설팅, 세무 컨설팅, 법인 설립·전환 자문 서비스를 제공합니다." />
+  <meta name="description" content="재무(CFP® 이근종)·세무(임장환 세무사)·법무(김범수 변호사)·노무(노성봉 변호사·노무사) — 경영자를 위한 종합 완성형 통합 컨설팅 서비스를 제공합니다." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -97,6 +97,47 @@
     .process-step h3 { font-size: 15px; font-weight: 700; color: var(--navy-dark); margin-bottom: 8px; }
     .process-step p { font-size: 13px; color: var(--gray-text); line-height: 1.6; }
 
+    /* ─── 경정청구 강조 박스 ─── */
+    .refund-highlight {
+      background: linear-gradient(135deg, rgba(34,139,34,0.07), rgba(46,160,67,0.05));
+      border: 1px solid rgba(34,139,34,0.25);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .refund-highlight h4 { font-size: 13px; font-weight: 800; color: #1a6b1a; margin-bottom: 12px; letter-spacing: 0.05em; }
+    .refund-point { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; margin-bottom: 8px; color: var(--text-dark); }
+    .refund-point:last-child { margin-bottom: 0; }
+    .refund-point strong { color: #1a6b1a; }
+    .service-sub-divider {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--navy-primary); background: rgba(74,124,199,0.08);
+      padding: 6px 14px; border-radius: 50px; margin: 20px 0 12px;
+      display: inline-block;
+    }
+    .refund-process {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px;
+    }
+    .refund-step {
+      background: var(--white); border: 1px solid var(--gray-light);
+      border-radius: 10px; padding: 12px 10px; text-align: center;
+    }
+    .refund-step .rs-num { font-size: 20px; font-weight: 800; color: var(--gold); line-height: 1; }
+    .refund-step .rs-title { font-size: 12px; font-weight: 700; color: var(--navy-dark); margin: 4px 0; }
+    .refund-step .rs-desc { font-size: 11px; color: var(--gray-text); line-height: 1.4; }
+    @media (max-width: 640px) { .refund-process { grid-template-columns: 1fr 1fr; } }
+
+    /* ─── 법무·노무 서비스 컬러 ─── */
+    .service-detail.legal  { border-left: none; }
+    .service-detail.legal  .service-num-big { color: rgba(92,53,160,0.12); }
+    .service-detail.legal  h2 span.accent { color: #5c35a0; }
+    .service-detail.labor  .service-num-big { color: rgba(230,81,0,0.12); }
+    .service-detail.labor  h2 span.accent { color: #e65100; }
+    .si-icon-legal  { background: linear-gradient(135deg, #5c35a0, #7b52c8) !important; }
+    .si-icon-labor  { background: linear-gradient(135deg, #e65100, #ff8f00) !important; }
+    .target-tag-legal { background: rgba(92,53,160,0.10); color: #5c35a0; border-color: rgba(92,53,160,0.25); }
+    .target-tag-labor { background: rgba(230,81,0,0.10); color: #e65100; border-color: rgba(230,81,0,0.25); }
+
     @media (max-width: 900px) {
       .service-detail { grid-template-columns: 1fr; }
       .service-detail.reverse { direction: ltr; }
@@ -138,8 +179,8 @@
       <div class="page-breadcrumb">
         <a href="index.html">홈</a> / <span>서비스</span>
       </div>
-      <h1>경영자를 위한<br/>재무·세무 통합 서비스</h1>
-      <p>CFP® 전문성과 세무사의 전문성이 결합된 3가지 핵심 서비스입니다.</p>
+      <h1>경영자를 위한<br/>종합 완성형 통합 서비스</h1>
+      <p>재무·세무·법무·노무 — 각 분야 전문가가 한 팀으로 움직이는 5가지 핵심 서비스입니다.</p>
     </div>
   </div>
 </section>
@@ -156,7 +197,7 @@
         <h2>경영·재무 컨설팅</h2>
         <p class="lead">기업의 재무 건전성을 진단하고 성장 전략을 설계합니다</p>
         <div style="margin-top:16px;">
-          <span class="target-tag">🏢 법인</span>
+          <span class="target-tag">🏢 법인사업자</span>
           <span class="target-tag">🧑‍💼 개인사업자</span>
           <span class="target-tag">📊 재무구조 개선이 필요한 기업</span>
         </div>
@@ -208,7 +249,7 @@
         <h2>세무 컨설팅 <span style="color:var(--gold);">특화</span></h2>
         <p class="lead">세무사와 직접 관리하는<br/>전략적 세금 관리 서비스</p>
         <div style="margin-top:16px;">
-          <span class="target-tag">🏢 법인</span>
+          <span class="target-tag">🏢 법인사업자</span>
           <span class="target-tag">🧑‍💼 개인사업자</span>
           <span class="target-tag">💰 절세가 필요한 고액 매출 사업자</span>
         </div>
@@ -257,18 +298,33 @@
       <div>
         <div class="service-num-big">03</div>
         <div class="service-icon-big">🏢</div>
-        <h2>법인 설립·전환·경정청구 자문<br/></h2>
-        <p class="lead">재무·세무 두 관점으로<br/>최적의 사업구조를 설계합니다</p>
+        <h2>법인 설립·전환 &amp;<br/>경정청구 세금환급</h2>
+        <p class="lead">재무·세무 두 관점으로<br/>최적의 사업구조 설계 + 과납 세금 환급</p>
         <div style="margin-top:16px;">
           <span class="target-tag">🧑‍💼 법인 전환을 고민 중인 개인사업자</span>
           <span class="target-tag">🌱 창업 준비 중인 예비 대표</span>
           <span class="target-tag">🏦 가업 승계를 준비 중인 기업주</span>
+          <span class="target-tag" id="refund">💰 지난 5년간 세금을 과납한 법인·개인사업자</span>
+        </div>
+
+        <!-- 경정청구 핵심 포인트 -->
+        <div class="refund-highlight" style="margin-top:24px;">
+          <h4>💡 경정청구(세금환급)란?</h4>
+          <p style="font-size:13px; color:var(--gray-text); line-height:1.7; margin-bottom:14px;">
+            국세기본법 제45조의 2에 따라, 지난 <strong>5년간</strong> 과납한 세금을
+            과세관청에 환급 신청할 수 있는 납세자의 권리입니다.
+            연간 국세환급금 규모가 <strong>85조 원</strong>에 달하지만 신청하지 않으면 환급받을 수 없습니다.
+          </p>
+          <div class="refund-point">✅ <span><strong>세무조사 대상이 아닙니다</strong> — 경정청구만을 이유로 세무조사를 진행할 수 없습니다 (대법원)</span></div>
+          <div class="refund-point">✅ <span><strong>환급 완료 전 비용 없음</strong> — 선수금·착수금·중간수수료 없는 완전 성공보수 방식</span></div>
+          <div class="refund-point">✅ <span><strong>5년 소급 적용</strong> — 최근 5개년도 신고분 전체에 대해 환급 가능 금액 검토</span></div>
         </div>
       </div>
       <div>
+        <span class="service-sub-divider">법인 설립 · 전환 자문</span>
         <p class="desc">
           법인 설립이나 개인→법인 전환은 타이밍과 방법이 중요합니다.
-          재무전문가와 세무사가 함께 시뮬레이션하여 어떤 구조가 세금·재무 양면에서 유리한지
+          재무전문가와 세무사가 함께 시뮬레이션하여 세금·재무 양면에서 유리한 구조를
           객관적인 수치로 비교 분석합니다.
         </p>
         <div class="service-items">
@@ -282,22 +338,175 @@
           <div class="service-item">
             <div class="si-icon">🏗️</div>
             <div>
-              <h4>사업구조 설계</h4>
-              <p>지분 구조, 임원 보수 설계, 가족 법인 활용 등 절세형 사업구조 설계</p>
+              <h4>사업구조 · 가업승계 설계</h4>
+              <p>지분·임원보수·가족법인 활용 등 절세형 사업구조 설계 및 장기 승계 플랜 수립</p>
+            </div>
+          </div>
+        </div>
+
+        <span class="service-sub-divider" style="margin-top:24px;">경정청구 · 세금환급 서비스</span>
+        <div class="service-items">
+          <div class="service-item">
+            <div class="si-icon">🔍</div>
+            <div>
+              <h4>환급 가능 금액 무료 진단</h4>
+              <p>최근 5개년도 세무조정계산서·계정별원장 검토를 통해 환급 예상액 산정 및 무료 안내</p>
             </div>
           </div>
           <div class="service-item">
-            <div class="si-icon">🔄</div>
+            <div class="si-icon">📋</div>
             <div>
-              <h4>전환 절차 지원</h4>
-              <p>법인 설립 등기부터 사업자 등록, 기존 계약 이전까지 전 과정 지원</p>
+              <h4>경정청구 신청 대리</h4>
+              <p>업종별 전문 세무사가 환급 청구서 작성·세무서 접수·조사관 대응까지 전 과정 대리 수행</p>
             </div>
           </div>
           <div class="service-item">
-            <div class="si-icon">🏛️</div>
+            <div class="si-icon">🛡️</div>
             <div>
-              <h4>가업 승계 설계</h4>
-              <p>가업 승계 증여세·상속세 절감을 위한 장기 승계 플랜 수립</p>
+              <h4>세무서 검토 대응</h4>
+              <p>세무서 조사관 검토(최대 2개월) 시 조사 자료 작성 및 대응 수행 — 경정청구는 세무조사 대상이 아닙니다</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon">💰</div>
+            <div>
+              <h4>환급금 수령 완료</h4>
+              <p>관할 세무서 검토 완료 후 지정 계좌 환급금 입금 확인 — 환급 완료 시점에만 성공보수 발생</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 경정청구 4단계 프로세스 -->
+        <div style="margin-top:20px; padding:18px; background:var(--gray-bg); border-radius:12px;">
+          <p style="font-size:12px; font-weight:800; color:var(--navy-primary); letter-spacing:0.08em; margin-bottom:12px;">📌 경정청구 진행 4단계</p>
+          <div class="refund-process">
+            <div class="refund-step">
+              <div class="rs-num">01</div>
+              <div class="rs-title">서류 검토</div>
+              <div class="rs-desc">5개년 세무조정계산서·계정별원장 등 확인</div>
+            </div>
+            <div class="refund-step">
+              <div class="rs-num">02</div>
+              <div class="rs-title">금액 산정</div>
+              <div class="rs-desc">예상 환급액 산정 후 안내 및 세무서 접수</div>
+            </div>
+            <div class="refund-step">
+              <div class="rs-num">03</div>
+              <div class="rs-title">세무서 검토</div>
+              <div class="rs-desc">조사관 검토 및 자료 대응 (최대 2개월)</div>
+            </div>
+            <div class="refund-step">
+              <div class="rs-num">04</div>
+              <div class="rs-title">환급 완료</div>
+              <div class="rs-desc">환급 통지서 수령 후 계좌 입금 확인</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 서비스 04 -->
+    <div class="service-detail reverse fade-in legal" id="legal">
+      <div>
+        <div class="service-num-big">04</div>
+        <div class="service-icon-big">⚖️</div>
+        <h2>법무 컨설팅 <span class="accent" style="color:#5c35a0;">전문</span></h2>
+        <p class="lead">도산 전문변호사가 직접 수행하는<br/>기업 법무·소송·구조조정 자문</p>
+        <p class="desc" style="margin-top:12px; font-size:13px; color:#5c35a0; font-weight:600;">김범수 변호사 · 법무법인 일현</p>
+        <div style="margin-top:16px;">
+          <span class="target-tag target-tag-legal">🏢 재무적 위기 기업</span>
+          <span class="target-tag target-tag-legal">📑 계약·분쟁 리스크 관리</span>
+          <span class="target-tag target-tag-legal">👨‍👩‍👧 가사·상속 법률 문제</span>
+          <span class="target-tag target-tag-legal">🏛️ 행정·인허가 사건</span>
+        </div>
+      </div>
+      <div>
+        <p class="desc">
+          대한변호사협회 등록 도산 전문변호사 김범수 변호사가 기업의 법적 리스크를 사전에 차단하고,
+          분쟁 발생 시 가장 유리한 결과를 이끌어냅니다.
+          재무·세무 전문가와 협업하여 법률·재무 양면에서 기업의 안전판 역할을 수행합니다.
+        </p>
+        <div class="service-items">
+          <div class="service-item">
+            <div class="si-icon si-icon-legal">🔄</div>
+            <div>
+              <h4>기업 회생·도산 자문</h4>
+              <p>법원 회생절차·파산 신청, 채권자 협상, 워크아웃 전략까지 도산 전문변호사의 원스톱 자문</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon si-icon-legal">📝</div>
+            <div>
+              <h4>기업 법무 자문</h4>
+              <p>계약서 검토·작성, 지분·투자 계약, M&A 자문 등 기업 일상 법무 전반의 리스크 관리</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon si-icon-legal">⚔️</div>
+            <div>
+              <h4>민사·상사 소송 대응</h4>
+              <p>대여금·손해배상·부동산 분쟁 등 민사 소송 전반, 상사 분쟁 조기 해결 전략 수립</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon si-icon-legal">🏛️</div>
+            <div>
+              <h4>가사·행정사건 처리</h4>
+              <p>이혼·상속 분쟁, 인허가 취소·행정처분 불복까지 기업주·경영자 개인 법률 문제 일괄 해결</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 서비스 05 -->
+    <div class="service-detail fade-in labor" id="labor">
+      <div>
+        <div class="service-num-big">05</div>
+        <div class="service-icon-big">👥</div>
+        <h2>노무 컨설팅 <span class="accent" style="color:#e65100;">분야별 자격</span></h2>
+        <p class="lead">공인노무사·변호사·가맹거래사<br/>분야별 전문 자격으로 노무 리스크를 완벽히 커버</p>
+        <p class="desc" style="margin-top:12px; font-size:13px; color:#e65100; font-weight:600;">노성봉 변호사·공인노무사 · 법무법인 일현</p>
+        <div style="margin-top:16px;">
+          <span class="target-tag target-tag-labor">🏭 직원 채용·관리 기업</span>
+          <span class="target-tag target-tag-labor">⚠️ 노사 분쟁 위기 기업</span>
+          <span class="target-tag target-tag-labor">🔗 가맹점 운영 프랜차이즈</span>
+          <span class="target-tag target-tag-labor">📋 취업규칙·인사규정 정비</span>
+        </div>
+      </div>
+      <div>
+        <p class="desc">
+          공인노무사로 실무를 시작해 변호사 자격까지 취득한 노동법 전문가 노성봉 변호사·노무사가
+          고용노동부 행정 경험을 바탕으로 노무 리스크를 법률과 실무 양면에서 해결합니다.
+          가맹거래사 자격까지 보유해 프랜차이즈 가맹거래 분쟁에도 특화된 자문을 제공합니다.
+        </p>
+        <div class="service-items">
+          <div class="service-item">
+            <div class="si-icon si-icon-labor">📋</div>
+            <div>
+              <h4>근로계약·취업규칙 정비</h4>
+              <p>표준근로계약서·취업규칙·인사규정 검토 및 작성, 노동법 위반 리스크 사전 제거</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon si-icon-labor">💰</div>
+            <div>
+              <h4>임금·퇴직금 분쟁 대응</h4>
+              <p>체불 임금, 퇴직금 산정 분쟁, 포괄임금제 적법성 검토 및 노동청·법원 대응</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon si-icon-labor">🛡️</div>
+            <div>
+              <h4>부당해고·노사 분쟁 처리</h4>
+              <p>부당해고 구제신청, 징계 절차 적법성 검토, 단체협약 분쟁, 노동위원회 심문 대리</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="si-icon si-icon-labor">🔗</div>
+            <div>
+              <h4>가맹거래 자문</h4>
+              <p>프랜차이즈 가맹계약 검토·분쟁 대응, 가맹본부·가맹점 간 불공정거래 이슈 해결</p>
             </div>
           </div>
         </div>
@@ -313,18 +522,18 @@
     <div class="fade-in text-center">
       <span class="section-label">Process</span>
       <h2 class="section-title">상담에서 실행까지</h2>
-      <p class="section-sub">처음 연락부터 실질적인 변화까지 4단계로 진행됩니다.</p>
+      <p class="section-sub">재무·세무·법무·노무 어느 분야든, 처음 연락부터 실질적인 변화까지 4단계로 진행됩니다.</p>
     </div>
     <div class="process-steps">
       <div class="process-step fade-in">
         <div class="step-circle">📞 <span style="color:var(--gold);">1</span></div>
-        <h3>무료 초기 상담</h3>
+        <h3>초기 상담</h3>
         <p>현황과 고민을 공유합니다. 어떤 서비스가 필요한지 파악하는 단계입니다.</p>
       </div>
       <div class="process-step fade-in">
         <div class="step-circle">🔍 <span style="color:var(--gold);">2</span></div>
         <h3>심층 분석</h3>
-        <p>재무·세무 현황을 종합적으로 분석합니다. 문제점과 기회를 찾습니다.</p>
+        <p>재무·세무·법무·노무 현황을 종합적으로 분석합니다. 문제점과 기회를 찾습니다.</p>
       </div>
       <div class="process-step fade-in">
         <div class="step-circle">📋 <span style="color:var(--gold);">3</span></div>
@@ -343,8 +552,8 @@
 <!-- ── CTA ── -->
 <section class="cta-banner">
   <div class="container">
-    <h2>어떤 서비스가 필요한지, 어떤 내용도 괜찮습니다</h2>
-    <p>먼저 고민을 말씀해 주세요. 가장 적합한 서비스를 함께 고민해 드리겠습니다.</p>
+    <h2>재무·세무·법무·노무 — 어떤 고민이든 괜찮습니다</h2>
+    <p>먼저 고민을 말씀해 주세요. 각 분야 전문가가 함께 해드립니다.</p>
     <div class="cta-btns">
       <a href="consult.html" class="btn btn-primary">상담 신청 →</a>
       <a href="tel:010-5170-8020" class="btn btn-outline">010-5170-8020</a>
@@ -358,7 +567,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="brand">플러스원자문그룹 주식회사</div>
-        <p>대표 이근종 CFP® | 국제공인재무설계사<br/>재무와 세무, 한 곳에서 완성됩니다.</p>
+        <p>대표 이근종 CFP® | 국제공인재무설계사<br/>재무·세무·법무·노무, 한 곳에서 완성됩니다.</p>
       </div>
       <div class="footer-links">
         <h4>메뉴</h4>
@@ -375,6 +584,9 @@
           <li><a href="services.html#finance">경영재무 컨설팅</a></li>
           <li><a href="services.html#tax">세무 컨설팅</a></li>
           <li><a href="services.html#corp">법인 설립·전환 자문</a></li>
+          <li><a href="services.html#refund">경정청구·세금환급</a></li>
+          <li><a href="services.html#legal">법무 컨설팅</a></li>
+          <li><a href="services.html#labor">노무 컨설팅</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -387,7 +599,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 플러스원자문그룹 주식회사 | 대표 이근종 CFP® | <a href="mailto:ceo@successplan.co.kr" style="color:inherit;">ceo@successplan.co.kr</a></p>
+      <p>© 2015 플러스원자문그룹 주식회사 | 대표 이근종 CFP® | <a href="mailto:ceo@successplan.co.kr" style="color:inherit;">ceo@successplan.co.kr</a></p>
       <div class="footer-social">
         <a href="https://instagram.com/leekeunjong_cfp" target="_blank" rel="noopener">📸</a>
         <a href="https://youtube.com/@successplan365" target="_blank" rel="noopener">▶</a>
