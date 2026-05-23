@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>이근종 CFP® | 플러스원자문그룹 경영재무컨설팅</title>
-  <meta name="description" content="재무(CFP® 이근종)·세무(임장환 세무사)·법무(김범수 변호사)·노무(노성봉 변호사·노무사) — 4각 완성형 경영 컨설팅. 경영자가 필요한 모든 전문 영역을 한 팀에서." />
+  <meta name="description" content="CFP® 이근종 대표와 세무사 임장환이 함께하는 종합 경영재무 컨설팅. 재무와 세무, 한 곳에서 완성됩니다." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -567,77 +567,11 @@
     #scrollTop.show { opacity: 1; }
     #scrollTop:hover { background: var(--navy-dark); transform: translateY(-2px); }
 
-    /* ─── 4각 완성형 컨설팅 ─── */
-    .quad-wrap {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      grid-template-rows: auto auto auto;
-      gap: 20px;
-      align-items: center;
-      margin-top: 56px;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .quad-node {
-      background: var(--white); border-radius: var(--radius);
-      box-shadow: var(--shadow); padding: 28px 24px;
-      transition: all 0.3s;
-    }
-    .quad-node:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
-    .quad-finance  { border-top: 4px solid var(--navy-primary); grid-column:1; grid-row:1; }
-    .quad-tax      { border-top: 4px solid #28a745;             grid-column:3; grid-row:1; }
-    .quad-legal    { border-top: 4px solid #7b1fa2;             grid-column:1; grid-row:3; }
-    .quad-labor    { border-top: 4px solid #e65100;             grid-column:3; grid-row:3; }
-    .quad-center   { grid-column:2; grid-row:2; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-    .quad-center-circle {
-      width: 130px; height: 130px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--navy-dark), var(--navy-primary));
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 32px rgba(13,27,62,0.25);
-      color: white; text-align: center; padding: 16px;
-    }
-    .quad-connector { grid-column:2; display:flex; justify-content:center; align-items:center; }
-    .quad-line { width: 2px; height: 40px; background: var(--gray-light); }
-    .quad-h-row { grid-column:1/-1; display:flex; align-items:center; gap:20px; }
-    .quad-h-line { flex:1; height: 2px; background: var(--gray-light); }
-    .quad-icon { font-size: 32px; margin-bottom: 8px; }
-    .quad-field-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; margin-bottom: 5px;
-    }
-    .quad-finance .quad-field-label  { color: var(--navy-primary); }
-    .quad-tax .quad-field-label      { color: #28a745; }
-    .quad-legal .quad-field-label    { color: #7b1fa2; }
-    .quad-labor .quad-field-label    { color: #e65100; }
-    .quad-name { font-size: 17px; font-weight: 800; color: var(--navy-dark); margin-bottom: 2px; }
-    .quad-org  { font-size: 12px; color: var(--gray-text); margin-bottom: 14px; }
-    .quad-items { list-style: none; padding: 0; border-top: 1px solid var(--gray-light); padding-top: 12px; }
-    .quad-items li { font-size: 12px; color: var(--gray-text); padding: 3px 0 3px 14px; position: relative; }
-    .quad-items li::before { content: '·'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
-    .quad-badge {
-      display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px;
-      border-radius: 50px; margin-bottom: 6px;
-    }
-    .badge-new { background: rgba(230,81,0,0.12); color: #e65100; }
-
     /* ─── Responsive ─── */
     @media (max-width: 900px) {
-      .quad-wrap { grid-template-columns: 1fr 1fr; grid-template-rows: auto; gap: 16px; }
-      .quad-finance  { grid-column:1; grid-row:1; }
-      .quad-tax      { grid-column:2; grid-row:1; }
-      .quad-legal    { grid-column:1; grid-row:2; }
-      .quad-labor    { grid-column:2; grid-row:2; }
-      .quad-center, .quad-connector, .quad-h-row { display: none; }
       .profile-wrap { grid-template-columns: 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
       .sns-channels { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 600px) {
-      .quad-wrap { grid-template-columns: 1fr; }
-      .quad-finance, .quad-tax, .quad-legal, .quad-labor { grid-column:1; }
-      .quad-finance { grid-row:1; } .quad-tax { grid-row:2; }
-      .quad-legal { grid-row:3; } .quad-labor { grid-row:4; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -700,14 +634,14 @@
   <div class="hero-decor"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge">CFP® × 세무사 × 변호사 × 노무사 — 4각 완성형 전문 체계</div>
+      <div class="hero-badge">국제공인재무설계사 CFP® × 세무사 전문 영역</div>
       <h1 class="hero-title">
-        재무·세무·법무·노무,<br/>
-        <em>한 팀에서</em> 완성됩니다
+        재무와 세무,<br/>
+        <em>한 곳에서</em> 완성됩니다
       </h1>
       <p class="hero-desc">
-        이근종 CFP® · 임장환 세무사 · 김범수 변호사 · 노성봉 변호사/노무사가 함께합니다.<br/>
-        경영자가 직면하는 모든 문제를 4개 전문 영역이 하나의 팀으로 해결합니다.
+        플러스원자문그룹 대표 이근종 CFP®와 세무사 임장환이 함께합니다.<br/>
+        법인과 개인사업자를 위한 완전한 경영재무 솔루션을 제공합니다.
       </p>
       <div class="hero-btns">
         <a href="#contact" class="btn btn-primary">무료 상담 신청 →</a>
@@ -715,20 +649,20 @@
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="num">재무</div>
-          <div class="label">CFP® 이근종</div>
+          <div class="num">20+</div>
+          <div class="label">년 재무 컨설팅 경력</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">CFP<sup style="font-size:18px">®</sup></div>
+          <div class="label">공인재무설계사 자격</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">법인+개인</div>
+          <div class="label">사업자 전문 관리</div>
         </div>
         <div class="hero-stat">
           <div class="num">세무</div>
-          <div class="label">세무사 임장환</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">법무</div>
-          <div class="label">변호사 김범수</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">노무</div>
-          <div class="label">변호사·노무사 노성봉</div>
+          <div class="label">전문 파트너십</div>
         </div>
       </div>
     </div>
@@ -740,8 +674,8 @@
   <div class="container">
     <div class="fade-in">
       <span class="section-label">Why SuccessPlan</span>
-      <h2 class="section-title">재무 · 세무 · 법무 · 노무<br/><span class="gold">4각 완성형 전문가 체계의 차이</span></h2>
-      <p class="section-sub">네 분야 전문가가 한 팀으로 움직입니다. 경영자가 직면하는 모든 문제를 분야별로 나누지 않고, 통합된 관점에서 해결합니다.</p>
+      <h2 class="section-title">재무전문가 + 세무사의<br/><span class="gold">결합이 만드는 차이</span></h2>
+      <p class="section-sub">단순한 세금 신고를 넘어, 재무 전략과 세무 최적화를 동시에 설계합니다.</p>
     </div>
     <div class="strength-grid">
       <div class="strength-card fade-in">
@@ -768,144 +702,13 @@
   </div>
 </section>
 
-<!-- ── 4각 완성형 컨설팅 ── -->
-<section id="quad" class="section" style="background:var(--gray-bg);">
-  <div class="container">
-    <div class="fade-in" style="text-align:center;">
-      <span class="section-label">Complete Consulting System</span>
-      <h2 class="section-title">4각 완성형 경영 컨설팅</h2>
-      <p class="section-sub">재무·세무·법무·노무 — 경영자가 필요한 모든 전문 영역을 하나의 팀에서.<br/>각 분야 전문가를 따로 찾는 시간과 비용을 줄이고, 통합된 관점으로 해결합니다.</p>
-    </div>
-
-    <div class="quad-wrap fade-in">
-
-      <!-- 재무 (좌상) -->
-      <div class="quad-node quad-finance">
-        <div class="quad-icon">📊</div>
-        <div class="quad-field-label">재무 · Finance</div>
-        <div class="quad-name">이근종 CFP®</div>
-        <div class="quad-org">플러스원자문그룹 대표</div>
-        <ul class="quad-items">
-          <li>경영재무 전략 수립</li>
-          <li>자금조달 · 투자 계획</li>
-          <li>경영자 자산관리</li>
-          <li>재무구조 진단 · 개선</li>
-        </ul>
-      </div>
-
-      <!-- 상단 연결선 -->
-      <div class="quad-connector" style="grid-row:1;">
-        <div class="quad-line" style="width:40px;height:2px;"></div>
-      </div>
-
-      <!-- 세무 (우상) -->
-      <div class="quad-node quad-tax">
-        <div class="quad-icon">🧾</div>
-        <div class="quad-field-label">세무 · Tax</div>
-        <div class="quad-name">임장환 세무사</div>
-        <div class="quad-org">바른세무회계 대표</div>
-        <ul class="quad-items">
-          <li>법인세 · 소득세 최적화</li>
-          <li>절세 전략 수립</li>
-          <li>세무조사 대응</li>
-          <li>세금 리스크 관리</li>
-        </ul>
-      </div>
-
-      <!-- 좌측 연결 -->
-      <div class="quad-connector" style="grid-column:1;grid-row:2;justify-content:flex-end;">
-        <div class="quad-line" style="width:2px;height:40px;"></div>
-      </div>
-
-      <!-- 중앙 원 -->
-      <div class="quad-center">
-        <div class="quad-center-circle">
-          <div>
-            <div style="font-size:24px;margin-bottom:6px;">🏆</div>
-            <div style="font-weight:800;font-size:14px;line-height:1.3;">경영자<br/>중심</div>
-            <div style="font-size:10px;opacity:0.7;margin-top:4px;">ONE TEAM</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 우측 연결 -->
-      <div class="quad-connector" style="grid-column:3;grid-row:2;justify-content:flex-start;">
-        <div class="quad-line" style="width:2px;height:40px;"></div>
-      </div>
-
-      <!-- 법무 (좌하) -->
-      <div class="quad-node quad-legal">
-        <div class="quad-icon">⚖️</div>
-        <div class="quad-field-label">법무 · Legal</div>
-        <div class="quad-name">김범수 변호사</div>
-        <div class="quad-org">법무법인 일현</div>
-        <ul class="quad-items">
-          <li>계약서 검토 · 작성</li>
-          <li>기업법무 자문</li>
-          <li>분쟁 대응 · 소송</li>
-          <li>법인 지배구조 설계</li>
-        </ul>
-      </div>
-
-      <!-- 하단 연결선 -->
-      <div class="quad-connector" style="grid-row:3;">
-        <div class="quad-line" style="width:40px;height:2px;"></div>
-      </div>
-
-      <!-- 노무 (우하) -->
-      <div class="quad-node quad-labor">
-        <div class="quad-icon">👥</div>
-        <div class="quad-field-label">노무 · Labor</div>
-        <div class="quad-name">노성봉 변호사·노무사</div>
-        <div class="quad-org">변호사 · 공인노무사 자격 보유</div>
-        <ul class="quad-items">
-          <li>노동법 · 근로계약 자문</li>
-          <li>임금 · 퇴직금 분쟁 대응</li>
-          <li>취업규칙 · 인사규정 설계</li>
-          <li>노무 리스크 사전 관리</li>
-        </ul>
-        <span class="quad-badge badge-new">변호사 + 노무사 이중 자격</span>
-      </div>
-
-    </div>
-
-    <!-- 강점 한줄 요약 -->
-    <div class="fade-in" style="margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center;">
-      <div style="padding:20px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);">
-        <div style="font-size:24px;margin-bottom:8px;">🔗</div>
-        <div style="font-weight:700;font-size:14px;color:var(--navy-dark);margin-bottom:6px;">통합 관점</div>
-        <div style="font-size:12px;color:var(--gray-text);">4개 분야가 연계된<br/>하나의 전략</div>
-      </div>
-      <div style="padding:20px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);">
-        <div style="font-size:24px;margin-bottom:8px;">⚡</div>
-        <div style="font-weight:700;font-size:14px;color:var(--navy-dark);margin-bottom:6px;">빠른 대응</div>
-        <div style="font-size:12px;color:var(--gray-text);">한 팀이라 협의가<br/>빠르게 이루어짐</div>
-      </div>
-      <div style="padding:20px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);">
-        <div style="font-size:24px;margin-bottom:8px;">💡</div>
-        <div style="font-weight:700;font-size:14px;color:var(--navy-dark);margin-bottom:6px;">사각지대 없음</div>
-        <div style="font-size:12px;color:var(--gray-text);">재무·세무·법무·노무<br/>전 영역 커버</div>
-      </div>
-      <div style="padding:20px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);">
-        <div style="font-size:24px;margin-bottom:8px;">🎯</div>
-        <div style="font-weight:700;font-size:14px;color:var(--navy-dark);margin-bottom:6px;">경영자 중심</div>
-        <div style="font-size:12px;color:var(--gray-text);">경영자의 목표에<br/>맞춘 맞춤 솔루션</div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:40px;" class="fade-in">
-      <a href="consult.html" class="btn btn-primary">4각 통합 컨설팅 무료 상담 신청 →</a>
-    </div>
-  </div>
-</section>
-
 <!-- ── Profile ── -->
 <section id="profile" class="section">
   <div class="container">
     <div class="fade-in">
       <span class="section-label">Meet the Experts</span>
-      <h2 class="section-title">4각 전문가 팀을 소개합니다</h2>
-      <p class="section-sub">재무·세무·법무·노무 각 분야 전문가가 하나의 팀으로 함께합니다.</p>
+      <h2 class="section-title">전문가를 소개합니다</h2>
+      <p class="section-sub">각 분야 최고 전문가가 당신의 파트너로 함께합니다.</p>
     </div>
     <div class="profile-wrap">
 
@@ -928,49 +731,6 @@
             <li>임장환 세무사와 함께 재무·세무 통합 솔루션 제공</li>
             <li>각 분야의 전문 자격사와 함께 솔루션 제공</li>
             <li>중기이코노미 LS센터 위험관리 솔루션 제공</li>
-            <!-- 추가 경력이 있으면 여기에 입력하세요 -->
-          </ul>
-        </div>
-      </div>
-
-      <!-- 김범수 변호사 -->
-      <div class="profile-card fade-in">
-        <div class="profile-card-header">
-          <div class="profile-avatar" style="background:linear-gradient(135deg,#7b1fa2,#9c27b0);display:flex;align-items:center;justify-content:center;font-size:36px;color:white;">⚖️</div>
-          <div class="profile-name">
-            <h3>김범수 변호사</h3>
-            <div class="title">대표변호사 · 법무법인 일현</div>
-          </div>
-        </div>
-        <div class="profile-body">
-          <ul class="profile-list">
-            <li>법무법인 일현 대표변호사</li>
-            <li>기업법무 · 계약법 전문</li>
-            <li>법인 지배구조 · 주주 간 계약 자문</li>
-            <li>M&amp;A · 기업 분쟁 해결</li>
-            <li>플러스원자문그룹 법무 파트너</li>
-            <!-- 추가 경력이 있으면 여기에 입력하세요 -->
-          </ul>
-        </div>
-      </div>
-
-      <!-- 노성봉 변호사/노무사 -->
-      <div class="profile-card fade-in">
-        <div class="profile-card-header">
-          <div class="profile-avatar" style="background:linear-gradient(135deg,#e65100,#ff6d00);display:flex;align-items:center;justify-content:center;font-size:36px;color:white;">👥</div>
-          <div class="profile-name">
-            <h3>노성봉 변호사·노무사</h3>
-            <div class="title">변호사 · 공인노무사 — 이중 자격 보유</div>
-          </div>
-        </div>
-        <div class="profile-body">
-          <ul class="profile-list">
-            <li>변호사 자격 · 공인노무사 자격 동시 보유</li>
-            <li>노동법 · 근로계약 분야 전문</li>
-            <li>임금체불 · 부당해고 · 노사분쟁 대응</li>
-            <li>취업규칙 · 인사규정 · 복무규정 설계</li>
-            <li>노무 리스크 사전 진단 및 예방 컨설팅</li>
-            <li>플러스원자문그룹 노무·법무 파트너</li>
             <!-- 추가 경력이 있으면 여기에 입력하세요 -->
           </ul>
         </div>
@@ -1011,7 +771,7 @@
     <div class="fade-in">
       <span class="section-label">Services</span>
       <h2 class="section-title">제공 서비스</h2>
-      <p class="section-sub">재무·세무·법무·노무를 아우르는 4각 완성형 경영 컨설팅 서비스입니다.</p>
+      <p class="section-sub">재무와 세무를 아우르는 경영 전반의 전문 컨설팅 서비스입니다.</p>
     </div>
     <div class="services-grid">
 
@@ -1052,34 +812,6 @@
           <span class="service-tag">지분 설계</span>
           <span class="service-tag">경정 청구</span>
           <span class="service-tag">가업 승계</span>
-        </div>
-      </div>
-
-      <div class="service-card fade-in" style="border-top:4px solid #7b1fa2;">
-        <div class="service-num" style="color:#7b1fa2;">04</div>
-        <div class="service-icon">⚖️</div>
-        <h3>법무 자문</h3>
-        <p>법무법인 일현 김범수 변호사와 함께합니다. 계약서 검토부터 기업분쟁 대응까지, 경영 과정에서 발생하는 모든 법적 리스크를 전문적으로 관리합니다.</p>
-        <div class="service-tags">
-          <span class="service-tag">계약서 검토·작성</span>
-          <span class="service-tag">기업법무 자문</span>
-          <span class="service-tag">분쟁 대응</span>
-          <span class="service-tag">지배구조 설계</span>
-          <span class="service-tag">M&amp;A 자문</span>
-        </div>
-      </div>
-
-      <div class="service-card fade-in" style="border-top:4px solid #e65100;">
-        <div class="service-num" style="color:#e65100;">05</div>
-        <div class="service-icon">👥</div>
-        <h3>노무 자문</h3>
-        <p>변호사·공인노무사 이중 자격을 보유한 노성봉 전문가가 함께합니다. 법적 관점과 노무 실무를 동시에 커버하는 차별화된 노무 리스크 관리를 제공합니다.</p>
-        <div class="service-tags">
-          <span class="service-tag">근로계약 설계</span>
-          <span class="service-tag">임금·퇴직금 분쟁</span>
-          <span class="service-tag">부당해고 대응</span>
-          <span class="service-tag">취업규칙 작성</span>
-          <span class="service-tag">노무 리스크 진단</span>
         </div>
       </div>
 
