@@ -1314,19 +1314,31 @@
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   // ── Contact form ──
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzToU8HN-zGw3tmGfohx6s1cl0fJ92dAVT-Mr8UQE0QLOSjxgwHjR_BaWZFVeS3bUBOfA/exec';
+
   function handleSubmit(e) {
     e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
     btn.textContent = '전송 중...';
     btn.disabled = true;
 
-    // 실제 운영 시 이 부분을 Formspree, EmailJS 등으로 교체하세요
-    setTimeout(() => {
-      showToast('✅ 상담 신청이 완료되었습니다! 곧 연락드리겠습니다.');
-      e.target.reset();
-      btn.textContent = '상담 신청하기 →';
-      btn.disabled = false;
-    }, 1200);
+    const formData = new FormData();
+    formData.append('name',    form.elements['name'].value);
+    formData.append('phone',   form.elements['phone'].value);
+    formData.append('email',   form.elements['email'].value);
+    formData.append('bizType', form.elements['type'].value);
+    formData.append('topics',  form.elements['type'].options[form.elements['type'].selectedIndex].text);
+    formData.append('revenue', '');
+    formData.append('message', form.elements['message'].value);
+
+    fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+      .finally(() => {
+        showToast('✅ 상담 신청이 완료되었습니다! 곧 연락드리겠습니다.');
+        form.reset();
+        btn.textContent = '상담 신청하기 →';
+        btn.disabled = false;
+      });
   }
 
   function showToast(msg) {
