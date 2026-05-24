@@ -534,19 +534,17 @@
     const topics = [...form.querySelectorAll('input[name="topic"]:checked')]
       .map(cb => cb.value).join(', ');
 
-    // 필드 수집 (form.elements로 안전하게 접근)
-    const params = new URLSearchParams({
-      name:    form.elements['name'].value,
-      phone:   form.elements['phone'].value,
-      email:   form.elements['email'].value,
-      bizType: form.elements['bizType'].value,
-      topics:  topics,
-      revenue: form.elements['revenue'].value,
-      message: form.elements['message'].value
-    });
+    // 필드 수집 — POST+FormData 방식 (리다이렉트 시 파라미터 유실 방지)
+    const formData = new FormData();
+    formData.append('name',    form.elements['name'].value);
+    formData.append('phone',   form.elements['phone'].value);
+    formData.append('email',   form.elements['email'].value);
+    formData.append('bizType', form.elements['bizType'].value);
+    formData.append('topics',  topics);
+    formData.append('revenue', form.elements['revenue'].value);
+    formData.append('message', form.elements['message'].value);
 
-    // GET 방식 전송 (CORS·리다이렉트 문제 없음)
-    fetch(SCRIPT_URL + '?' + params.toString(), { mode: 'no-cors' })
+    fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
       .finally(() => {
         document.getElementById('successOverlay').classList.add('show');
         form.reset();
