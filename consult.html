@@ -81,7 +81,7 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .form-check-group { display: flex; flex-direction: column; gap: 10px; }
     .form-check {
-      display: flex; align-items: center; gap: 16px;
+      display: flex; align-items: center; gap: 20px;
       padding: 14px 18px; border-radius: 8px; background: var(--white);
       border: 1.5px solid var(--gray-light); cursor: pointer;
       transition: all 0.2s;
@@ -89,9 +89,15 @@
     .form-check:hover { border-color: var(--navy-light); }
     .form-check input[type="checkbox"] {
       width: 18px; height: 18px; accent-color: var(--navy-primary);
-      flex-shrink: 0; align-self: center; margin: 0; cursor: pointer;
+      flex-shrink: 0; flex-basis: 18px;
+      margin: 0; padding: 0; cursor: pointer;
+      position: relative; top: 0;
+      vertical-align: middle;
     }
-    .form-check span { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+    .form-check span {
+      font-size: 14px; color: var(--text-dark);
+      line-height: 1.5; display: flex; align-items: center;
+    }
     .form-submit {
       width: 100%; padding: 16px;
       background: linear-gradient(135deg, var(--navy-primary), var(--navy-medium));
