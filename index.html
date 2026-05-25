@@ -447,12 +447,26 @@
     .contact-item h4 { font-size: 13px; font-weight: 600; color: var(--gray-text); margin-bottom: 4px; }
     .contact-item a, .contact-item p { font-size: 15px; font-weight: 500; color: var(--navy-dark); }
     .contact-item a:hover { color: var(--navy-light); }
+    .contact-wrap { grid-template-columns: 1fr 1.6fr; }
     .contact-form {
       background: var(--gray-bg);
       border-radius: var(--radius);
       padding: 36px;
     }
     .contact-form h3 { font-size: 20px; font-weight: 700; color: var(--navy-dark); margin-bottom: 24px; }
+    .form-check-group { display: flex; flex-direction: column; gap: 10px; }
+    .form-check {
+      display: flex; flex-direction: row; align-items: center; gap: 17px;
+      padding: 14px 18px; border-radius: 8px; background: var(--white);
+      border: 1.5px solid var(--gray-light); cursor: pointer; transition: all 0.2s;
+    }
+    .form-check:hover { border-color: var(--navy-light); }
+    .form-check input[type="checkbox"] {
+      width: 18px; height: 18px; min-width: 18px;
+      accent-color: var(--navy-primary); margin: 0; cursor: pointer;
+    }
+    .form-check span { font-size: 14px; color: var(--text-dark); line-height: 1.5; }
+    .form-privacy { font-size: 12px; color: var(--gray-text); text-align: center; margin-top: 12px; line-height: 1.6; }
     .form-group { margin-bottom: 16px; }
     .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--navy-primary); margin-bottom: 6px; }
     .form-group input,
@@ -1270,11 +1284,11 @@
         <form id="contactForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="form-group">
-              <label for="name">성함 *</label>
+              <label for="name">성함 <span style="color:#e53e3e;">*</span></label>
               <input type="text" id="name" name="name" placeholder="OOO" required />
             </div>
             <div class="form-group">
-              <label for="phone">연락처 *</label>
+              <label for="phone">연락처 <span style="color:#e53e3e;">*</span></label>
               <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required />
             </div>
           </div>
@@ -1283,23 +1297,45 @@
             <input type="email" id="email" name="email" placeholder="example@email.com" />
           </div>
           <div class="form-group">
-            <label for="type">상담 유형 *</label>
-            <select id="type" name="type" required>
+            <label for="bizType">사업자 유형 <span style="color:#e53e3e;">*</span></label>
+            <select id="bizType" name="bizType" required>
               <option value="">선택해 주세요</option>
-              <option value="tax">세무 컨설팅</option>
-              <option value="finance">경영재무 컨설팅</option>
-              <option value="corp">법인 설립·전환·경정청구</option>
-              <option value="legal">법률 상담</option>
-              <option value="labor">인사·노무 상담</option>
-              <option value="franchise">가맹점·프랜차이즈 상담</option>
-              <option value="etc">기타</option>
+              <option>법인사업자</option>
+              <option>개인사업자</option>
+              <option>예비 창업자</option>
+              <option>기타</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message">문의 내용</label>
-            <textarea id="message" name="message" placeholder="궁금하신 내용을 자유롭게 작성해 주세요."></textarea>
+            <label>상담 희망 분야 <span style="color:#e53e3e;">*</span> <span style="font-weight:400;color:var(--gray-text);">(복수 선택 가능)</span></label>
+            <div class="form-check-group">
+              <label class="form-check" style="border-color:rgba(27,58,107,0.3);background:rgba(27,58,107,0.05);"><input type="checkbox" name="topic" value="경영재무 컨설팅" /><span>경영재무 컨설팅 — 재무구조 진단, 현금흐름 관리, 재무 전략 수립</span></label>
+              <label class="form-check" style="border-color:rgba(13,115,119,0.3);background:rgba(13,115,119,0.05);"><input type="checkbox" name="topic" value="세무 컨설팅" /><span>세무 컨설팅 — 절세 전략, 세무조사 대응, 연간 세무 플랜</span></label>
+              <label class="form-check" style="border-color:rgba(46,80,144,0.3);background:rgba(46,80,144,0.05);"><input type="checkbox" name="topic" value="법인 설립·전환·승계 자문" /><span>법인 설립·전환 자문 — 개인→법인 전환, 사업구조·가업승계 설계</span></label>
+              <label class="form-check" style="border-color:rgba(34,139,34,0.3);background:rgba(34,139,34,0.05);"><input type="checkbox" name="topic" value="경정청구·세금환급" /><span>경정청구·세금환급 — 지난 5년 과오납 세금 환급</span></label>
+              <label class="form-check" style="border-color:rgba(92,53,160,0.3);background:rgba(92,53,160,0.05);"><input type="checkbox" name="topic" value="법무 컨설팅" /><span>법무 컨설팅 — 기업법무, 소송·도산, 계약·M&amp;A, 가사·행정</span></label>
+              <label class="form-check" style="border-color:rgba(230,81,0,0.3);background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>노무 컨설팅 — 근로계약·취업규칙, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
+              <label class="form-check" style="border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.06);"><input type="checkbox" name="topic" value="경영자 자산관리" /><span>경영자 자산관리 — 사업 소득·개인 자산 통합 관리</span></label>
+              <label class="form-check" style="border-color:rgba(107,114,128,0.3);background:rgba(107,114,128,0.05);"><input type="checkbox" name="topic" value="기타" /><span>기타 (아래에 내용 작성)</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="revenue">연 매출 규모</label>
+            <select id="revenue" name="revenue">
+              <option value="">선택 안 함</option>
+              <option>1억 미만</option>
+              <option>1억 ~ 3억</option>
+              <option>3억 ~ 10억</option>
+              <option>10억 ~ 50억</option>
+              <option>50억 이상</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">상담 내용 <span style="color:#e53e3e;">*</span></label>
+            <textarea id="message" name="message" placeholder="현재 고민하고 계신 내용을 자유롭게 작성해 주세요. 구체적일수록 더 정확한 상담이 가능합니다." required></textarea>
           </div>
           <button type="submit" class="form-submit">상담 신청하기 →</button>
+          <p class="form-privacy">입력하신 정보는 상담 목적으로만 활용되며, 외부에 공개되지 않습니다.</p>
         </form>
       </div>
     </div>
@@ -1404,13 +1440,17 @@
     btn.textContent = '전송 중...';
     btn.disabled = true;
 
+    // 체크박스 복수 선택 수집
+    const topics = [...form.querySelectorAll('input[name="topic"]:checked')]
+      .map(cb => cb.value).join(', ');
+
     const formData = new FormData();
     formData.append('name',    form.elements['name'].value);
     formData.append('phone',   form.elements['phone'].value);
     formData.append('email',   form.elements['email'].value);
-    formData.append('bizType', form.elements['type'].value);
-    formData.append('topics',  form.elements['type'].options[form.elements['type'].selectedIndex].text);
-    formData.append('revenue', '');
+    formData.append('bizType', form.elements['bizType'].value);
+    formData.append('topics',  topics);
+    formData.append('revenue', form.elements['revenue'].value);
     formData.append('message', form.elements['message'].value);
 
     fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
