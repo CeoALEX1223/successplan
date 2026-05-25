@@ -237,3 +237,36 @@ footer { background: var(--navy-dark); color: rgba(255,255,255,0.6); padding: 48
   .section { padding: 64px 0; }
   .cta-btns { flex-direction: column; align-items: center; }
 }
+
+/* ─── 카카오 플로팅 상담 버튼 ─── */
+.kakao-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FEE500;
+  color: #3A1D1D;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  transition: all 0.25s;
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 1;
+}
+.kakao-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+  background: #FFD600;
+  color: #3A1D1D;
+}
+.kakao-float svg { flex-shrink: 0; }
+@media (max-width: 600px) {
+  .kakao-float .kakao-label { display: none; }
+  .kakao-float { padding: 14px; border-radius: 50%; }
+}

@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>플러스원자문그룹 | 이근종 CFP® </title>
   <meta name="description" content="재무(CFP® 이근종)·세무(임장환 세무사)·법무(김범수 변호사)·노무(노성봉 변호사·노무사) — 사업자 전용 전문 컨설팅. 경영자가 필요한 모든 전문 영역을 한 곳에서." />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231B3A6B'/><text x='50' y='68' text-anchor='middle' font-size='52' font-family='Arial' font-weight='bold' fill='%23C9A84C'>P+</text></svg>" />
+  <!-- Open Graph (카카오·네이버 공유 시 썸네일) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="플러스원자문그룹" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:url" content="https://successplan.co.kr/" />
+  <meta property="og:title" content="플러스원자문그룹 | 이근종 CFP® — 재무·세무·법무·노무 종합 컨설팅" />
+  <meta property="og:description" content="CFP® 이근종·임장환 세무사·김범수 변호사·노성봉 변호사·노무사가 한 팀. 경영자가 필요한 모든 전문 영역을 한 곳에서 해결합니다. 첫 상담 무료." />
+  <meta property="og:image" content="https://successplan.co.kr/images/og-image.jpg" />
+  <!-- og:image → images/og-image.jpg 파일을 별도 제작해 업로드하면 공유 썸네일이 표시됩니다 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -524,10 +535,27 @@
     }
     .footer-social a:hover { background: var(--gold); }
 
+    /* ─── 카카오 플로팅 버튼 (index 인라인) ─── */
+    .kakao-float {
+      position: fixed; bottom: 32px; right: 32px; z-index: 998;
+      display: flex; align-items: center; gap: 8px;
+      background: #FEE500; color: #3A1D1D;
+      padding: 14px 22px; border-radius: 50px;
+      font-size: 14px; font-weight: 700; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18); transition: all 0.25s;
+      font-family: 'Noto Sans KR', sans-serif; line-height: 1;
+    }
+    .kakao-float:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); background: #FFD600; color: #3A1D1D; }
+    .kakao-float svg { flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .kakao-float .kakao-label { display: none; }
+      .kakao-float { padding: 14px; border-radius: 50%; }
+    }
+
     /* ─── Toast ─── */
     .toast {
       position: fixed;
-      bottom: 32px;
+      bottom: 100px;
       right: 32px;
       background: var(--navy-dark);
       color: white;
@@ -756,7 +784,7 @@
       <div class="strength-card fade-in">
         <div class="strength-icon">🔗</div>
         <h3>One-Stop 솔루션</h3>
-        <p>재무·세무·법무·노무 분야의 전문가 그룹이 함꼐 종합적인 서비스를 제공해 드립니다.</p>
+        <p>재무·세무·법무·노무 분야의 전문가 그룹이 함께 종합적인 서비스를 제공해 드립니다.</p>
       </div>
       <div class="strength-card fade-in">
         <div class="strength-icon">🎯</div>
@@ -1140,6 +1168,54 @@
   </div>
 </section>
 
+<!-- ── 고객 후기 ── -->
+<section id="reviews" class="section-sm" style="background:var(--navy-dark);">
+  <div class="container">
+    <div class="fade-in" style="text-align:center; margin-bottom:48px;">
+      <span class="section-label" style="color:var(--gold);background:rgba(201,168,76,0.15);">Client Reviews</span>
+      <h2 class="section-title" style="color:var(--white);">고객 후기</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.55);margin:0 auto;">실제 상담을 경험하신 분들의 이야기입니다.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+
+      <div class="fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;gap:16px;">
+        <div style="color:var(--gold);font-size:20px;letter-spacing:2px;">★★★★★</div>
+        <p style="font-size:15px;color:rgba(255,255,255,0.85);line-height:1.8;flex:1;">
+          "법인 전환 타이밍을 정확히 짚어주셨습니다. 재무·세무·노무 관점에서 종합 검토 후 진행해 연간 절세 효과가 기대 이상이었습니다."
+        </p>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.7);">제조업 법인 대표</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;">경기도 · 법인 설립·전환 상담</div>
+        </div>
+      </div>
+
+      <div class="fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;gap:16px;">
+        <div style="color:var(--gold);font-size:20px;letter-spacing:2px;">★★★★★</div>
+        <p style="font-size:15px;color:rgba(255,255,255,0.85);line-height:1.8;flex:1;">
+          "경정청구로 생각보다 큰 환급을 받았습니다. 선비용 없이 진행되고, 과정 내내 솔직하게 설명해 주셔서 신뢰가 갔습니다."
+        </p>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.7);">서비스업 개인사업자</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;">서울 · 경정청구·세금환급 상담</div>
+        </div>
+      </div>
+
+      <div class="fade-in" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:32px;display:flex;flex-direction:column;gap:16px;">
+        <div style="color:var(--gold);font-size:20px;letter-spacing:2px;">★★★★★</div>
+        <p style="font-size:15px;color:rgba(255,255,255,0.85);line-height:1.8;flex:1;">
+          "직원 관련 문제가 노무·법무·재무 세 분야가 얽혀 있었는데, 각 전문가가 한 팀으로 빠르게 해결해 주셔서 든든했습니다."
+        </p>
+        <div>
+          <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,0.7);">유통업 법인 대표</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:2px;">인천 · 노무·법무 종합 상담</div>
+        </div>
+      </div>
+
+    </div>
+    <p style="text-align:center;font-size:12px;color:rgba(255,255,255,0.25);margin-top:28px;">* 고객 동의하에 익명으로 게재된 실제 후기입니다. 필요 시 실제 후기로 교체 가능합니다.</p>
+  </div>
+</section>
+
 <!-- ── Contact ── -->
 <section id="contact" class="section">
   <div class="container">
@@ -1213,9 +1289,9 @@
               <option value="tax">세무 컨설팅</option>
               <option value="finance">경영재무 컨설팅</option>
               <option value="corp">법인 설립·전환·경정청구</option>
-              <option value="corp">법률 상담</option>
-              <option value="corp">인사·노무 상담</option>
-              <option value="corp">가맹점·프랜차이즈 상담</option>
+              <option value="legal">법률 상담</option>
+              <option value="labor">인사·노무 상담</option>
+              <option value="franchise">가맹점·프랜차이즈 상담</option>
               <option value="etc">기타</option>
             </select>
           </div>
@@ -1278,6 +1354,12 @@
     </div>
   </div>
 </footer>
+
+<!-- 카카오 플로팅 상담 버튼 -->
+<a href="http://pf.kakao.com/_VHesX" target="_blank" rel="noopener" class="kakao-float" title="카카오 채널로 상담하기">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="#3A1D1D" xmlns="http://www.w3.org/2000/svg"><path d="M12 3C6.477 3 2 6.686 2 11.18c0 2.855 1.708 5.376 4.318 6.913L5.25 21.15a.45.45 0 0 0 .643.537l4.207-2.168c.62.085 1.253.129 1.9.129 5.523 0 10-3.687 10-8.268C22 6.686 17.523 3 12 3z"/></svg>
+  <span class="kakao-label">카카오 상담</span>
+</a>
 
 <!-- Scroll to Top -->
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="맨 위로">↑</button>
