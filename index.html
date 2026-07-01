@@ -631,6 +631,8 @@
     .quad-tax      { border-top: 4px solid #28a745;             grid-column:3; grid-row:1; }
     .quad-legal    { border-top: 4px solid #7b1fa2;             grid-column:1; grid-row:3; }
     .quad-labor    { border-top: 4px solid #e65100;             grid-column:3; grid-row:3; }
+    .quad-AX       { border-top: 4px solid #0d8fa8;             grid-column:1; grid-row:5; }
+    .quad-AI       { border-top: 4px solid #0d8fa8;             grid-column:3; grid-row:5; }
     .quad-center   { grid-column:2; grid-row:2; display:flex; flex-direction:column; align-items:center; justify-content:center; }
     .quad-center-circle {
       width: 130px; height: 130px; border-radius: 50%;
@@ -652,6 +654,8 @@
     .quad-tax .quad-field-label      { color: #28a745; }
     .quad-legal .quad-field-label    { color: #7b1fa2; }
     .quad-labor .quad-field-label    { color: #e65100; }
+    .quad-AX .quad-field-label       { color: #0d8fa8; }
+    .quad-AI .quad-field-label       { color: #0d8fa8; }
     .quad-name { font-size: 17px; font-weight: 800; color: var(--navy-dark); margin-bottom: 2px; }
     .quad-org  { font-size: 12px; color: var(--gray-text); margin-bottom: 14px; }
     .quad-items { list-style: none; padding: 0; border-top: 1px solid var(--gray-light); padding-top: 12px; }
@@ -670,6 +674,8 @@
       .quad-tax      { grid-column:2; grid-row:1; }
       .quad-legal    { grid-column:1; grid-row:2; }
       .quad-labor    { grid-column:2; grid-row:2; }
+      .quad-AX       { grid-column:1; grid-row:3; }
+      .quad-AI       { grid-column:2; grid-row:3; }
       .quad-center, .quad-connector, .quad-h-row { display: none; }
       .profile-wrap { grid-template-columns: 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
@@ -677,9 +683,10 @@
     }
     @media (max-width: 600px) {
       .quad-wrap { grid-template-columns: 1fr; }
-      .quad-finance, .quad-tax, .quad-legal, .quad-labor { grid-column:1; }
+      .quad-finance, .quad-tax, .quad-legal, .quad-labor, .quad-AX, .quad-AI { grid-column:1; }
       .quad-finance { grid-row:1; } .quad-tax { grid-row:2; }
       .quad-legal { grid-row:3; } .quad-labor { grid-row:4; }
+      .quad-AX { grid-row:5; } .quad-AI { grid-row:6; }
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -917,11 +924,23 @@
         <span class="quad-badge badge-new">변호사 + 노무사 + 가맹거래사 자격</span>
       </div>
 
-    </div>
+      <!-- AX 좌측 수직 연결 -->
+      <div class="quad-connector" style="grid-column:1;grid-row:4;justify-content:flex-end;">
+        <div class="quad-line" style="width:2px;height:40px;"></div>
+      </div>
 
-    <!-- AX 파트너 -->
-    <div class="fade-in" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
-      <div class="quad-node quad-AX" style="margin:0;">
+      <!-- AX 섹션 레이블 -->
+      <div style="grid-column:2;grid-row:4;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#0d8fa8;background:rgba(13,143,168,0.10);padding:4px 16px;border-radius:50px;">AX Partners</span>
+      </div>
+
+      <!-- AX 우측 수직 연결 -->
+      <div class="quad-connector" style="grid-column:3;grid-row:4;justify-content:flex-start;">
+        <div class="quad-line" style="width:2px;height:40px;"></div>
+      </div>
+
+      <!-- AX Transformation (좌하) -->
+      <div class="quad-node quad-AX">
         <div class="quad-icon">🤖</div>
         <div class="quad-field-label">AX Transformation</div>
         <div class="quad-name">김정우 대표</div>
@@ -935,7 +954,14 @@
           <li>임직원 AI 역량 강화 — 실무 중심 교육·내재화</li>
         </ul>
       </div>
-      <div class="quad-node quad-AI" style="margin:0;">
+
+      <!-- AX 수평 연결선 -->
+      <div class="quad-connector" style="grid-row:5;">
+        <div class="quad-line" style="width:40px;height:2px;"></div>
+      </div>
+
+      <!-- AI Infrastructure (우하) -->
+      <div class="quad-node quad-AI">
         <div class="quad-icon">🔧</div>
         <div class="quad-field-label">AI Infrastructure</div>
         <div class="quad-name">엄남일 대표</div>
@@ -948,6 +974,7 @@
           <li>TokenBridge — AI 토큰 관리 서비스</li>
         </ul>
       </div>
+
     </div>
 
 
