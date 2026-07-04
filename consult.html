@@ -387,7 +387,7 @@
               <!-- 법무 — purple -->
               <label class="form-check" style="border-color:rgba(92,53,160,0.3); background:rgba(92,53,160,0.05);"><input type="checkbox" name="topic" value="법무 컨설팅" /><span>⚖️ 법무 컨설팅 — 기업법무, 소송·도산, 계약·M&amp;A, 가사·행정</span></label>
               <!-- 노무 — orange -->
-              <label class="form-check" style="border-color:rgba(230,81,0,0.3); background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>👥 노무 컨설팅 — 근로계약·취업규칙, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
+              <label class="form-check" style="border-color:rgba(230,81,0,0.3); background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>👥 노무 컨설팅 — 중대 재해 처벌 관련, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
               <!-- 자산관리 — gold -->
               <label class="form-check" style="border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.06);"><input type="checkbox" name="topic" value="경영자 자산관리" /><span>🏦 경영자 자산관리 — 사업 소득·개인 자산 통합 관리</span></label>
               <!-- AX — teal -->
@@ -411,7 +411,7 @@
             <label>상담 내용 <span class="req">*</span></label>
             <textarea name="message" placeholder="현재 고민하고 계신 내용을 자유롭게 작성해 주세요. 구체적일수록 더 정확한 상담이 가능합니다." required></textarea>
           </div>
-          <button type="submit" class="form-submit">경정 청구 금액 확인하기 →</button>
+          <button type="submit" class="form-submit">상담 신청 →</button>
           <p class="form-privacy">입력하신 정보는 상담 목적으로만 활용되며, 외부에 공개되지 않습니다.</p>
         </form>
       </div>
@@ -645,7 +645,7 @@
       })
       .catch(() => {
         showToast('❌ 전송 오류가 발생했습니다. 010-5170-8020으로 직접 연락해 주세요.');
-        btn.textContent = '경정 청구 금액 확인하기 →';
+        btn.textContent = '상담 신청 →';
         btn.disabled = false;
       });
   }
