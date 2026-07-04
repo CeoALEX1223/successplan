@@ -170,7 +170,7 @@
         <li><a href="about.html">소개</a></li>
         <li><a href="services.html">서비스</a></li>
         <li><a href="insight.html">인사이트</a></li>
-        <li><a href="consult.html" class="nav-cta active">상담 신청</a></li>
+        <li><a href="consult.html" class="nav-cta active">경정 청구 금액 확인하기</a></li>
       </ul>
       <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
         <span></span><span></span><span></span>
@@ -339,7 +339,7 @@
 
       <!-- 상담 신청 폼 -->
       <div class="consult-form fade-in">
-        <h3>온라인 상담 신청</h3>
+        <h3>경정 청구 금액 확인하기</h3>
         <form id="consultForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
             <div class="form-group">
@@ -403,7 +403,7 @@
             <label>상담 내용 <span class="req">*</span></label>
             <textarea name="message" placeholder="현재 고민하고 계신 내용을 자유롭게 작성해 주세요. 구체적일수록 더 정확한 상담이 가능합니다." required></textarea>
           </div>
-          <button type="submit" class="form-submit">상담 신청하기 →</button>
+          <button type="submit" class="form-submit">경정 청구 금액 확인하기 →</button>
           <p class="form-privacy">입력하신 정보는 상담 목적으로만 활용되며, 외부에 공개되지 않습니다.</p>
         </form>
       </div>
@@ -538,7 +538,7 @@
           <li><a href="about.html">소개</a></li>
           <li><a href="services.html">서비스</a></li>
           <li><a href="insight.html">인사이트</a></li>
-          <li><a href="consult.html">상담 신청</a></li>
+          <li><a href="consult.html">경정 청구 금액 확인하기</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -634,7 +634,7 @@
       .finally(() => {
         document.getElementById('successOverlay').classList.add('show');
         form.reset();
-        btn.textContent = '상담 신청하기 →';
+        btn.textContent = '경정 청구 금액 확인하기 →';
         btn.disabled = false;
       });
   }
