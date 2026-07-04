@@ -760,6 +760,46 @@
     }
     .case-result-desc { font-size: 13px; color: var(--navy-dark); font-weight: 600; line-height: 1.5; }
 
+    /* ─── 간단 신청 섹션 ─── */
+    #quick-apply { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); padding: 72px 0; }
+    #quick-apply .section-label { color: var(--gold); background: rgba(201,168,76,0.15); }
+    #quick-apply .section-title { color: var(--white); }
+    #quick-apply .section-sub { color: rgba(255,255,255,0.65); }
+    .quick-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; margin-top: 48px; }
+    .quick-box { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
+    .quick-box h3 { font-size: 17px; font-weight: 700; color: var(--navy-dark); margin-bottom: 20px; }
+    .quick-chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .quick-chip { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .quick-chip input[type="checkbox"] { display: none; }
+    .quick-chip span {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 20px;
+      border: 1.5px solid #d1d5db;
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      background: #f9fafb;
+      transition: all 0.18s;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+    .quick-chip input:checked + span {
+      background: var(--navy-primary);
+      border-color: var(--navy-primary);
+      color: var(--white);
+      font-weight: 600;
+    }
+    .quick-pitch ul { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .quick-pitch li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: rgba(255,255,255,0.8); }
+    .quick-pitch li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .quick-phone { margin-top: 28px; font-size: 14px; color: rgba(255,255,255,0.6); }
+    .quick-phone a { color: var(--gold-light); font-weight: 600; }
+    @media (max-width: 800px) {
+      .quick-wrap { grid-template-columns: 1fr; }
+      .quick-pitch { order: -1; }
+    }
+
     /* ─── Fade-in animation ─── */
     .fade-in {
       opacity: 0;
@@ -1379,6 +1419,62 @@
   </div>
 </section>
 
+<!-- ── 간단 신청 ── -->
+<section id="quick-apply">
+  <div class="container">
+    <div class="fade-in text-center">
+      <span class="section-label">Quick Apply</span>
+      <h2 class="section-title">간단 상담 신청</h2>
+      <p class="section-sub">성함과 연락처, 원하시는 분야만 선택하시면 담당 전문가가 직접 연락드립니다.</p>
+    </div>
+    <div class="quick-wrap">
+      <!-- 왼쪽 안내 -->
+      <div class="quick-pitch fade-in">
+        <ul>
+          <li>첫 상담 완전 무료</li>
+          <li>24시간 내 담당자 직접 연락</li>
+          <li>재무·세무·법무·노무·AX 원스톱 해결</li>
+          <li>개인정보는 상담 목적으로만 사용</li>
+        </ul>
+        <p class="quick-phone">
+          📞 즉시 전화 상담: <a href="tel:01051708020">010-5170-8020</a>
+        </p>
+      </div>
+      <!-- 오른쪽 폼 -->
+      <div class="quick-box fade-in">
+        <h3>상담 신청</h3>
+        <form id="quickForm" onsubmit="handleQuickSubmit(event)">
+          <div class="form-row" style="margin-bottom:14px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>성함 <span style="color:#e53e3e;">*</span></label>
+              <input type="text" name="qname" placeholder="홍길동" required />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>연락처 <span style="color:#e53e3e;">*</span></label>
+              <input type="tel" name="qphone" placeholder="010-0000-0000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>상담 희망 분야 <span style="color:#e53e3e;">*</span> <span style="font-weight:400;color:#888;">(복수 선택)</span></label>
+            <div class="quick-chip-group">
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="경영재무" /><span>📈 경영재무</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="세무·절세" /><span>🧾 세무·절세</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="법인 설립·전환" /><span>🏢 법인 설립·전환</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="경정청구·세금환급" /><span>💰 경정청구·환급</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="법무 컨설팅" /><span>⚖️ 법무</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="노무 컨설팅" /><span>👥 노무</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="경영자 자산관리" /><span>🏦 자산관리</span></label>
+              <label class="quick-chip"><input type="checkbox" name="qtopic" value="AX(AI 전환)" /><span>🤖 AX(AI 전환)</span></label>
+            </div>
+          </div>
+          <button type="submit" class="form-submit" id="quickBtn" style="margin-top:8px;">상담 신청 →</button>
+          <p class="form-privacy">입력하신 정보는 상담 목적으로만 활용됩니다.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── SNS / Insight ── -->
 <section id="sns" class="section-sm">
   <div class="container">
@@ -1560,7 +1656,7 @@
               <label class="form-check" style="border-color:rgba(46,80,144,0.3);background:rgba(46,80,144,0.05);"><input type="checkbox" name="topic" value="법인 설립·전환·승계 자문" /><span>법인 설립·전환 자문 — 개인→법인 전환, 사업구조·가업승계 설계</span></label>
               <label class="form-check" style="border-color:rgba(34,139,34,0.3);background:rgba(34,139,34,0.05);"><input type="checkbox" name="topic" value="경정청구·세금환급" /><span>경정청구·세금환급 — 지난 5년 과오납 세금 환급</span></label>
               <label class="form-check" style="border-color:rgba(92,53,160,0.3);background:rgba(92,53,160,0.05);"><input type="checkbox" name="topic" value="법무 컨설팅" /><span>법무 컨설팅 — 기업법무, 소송·도산, 계약·M&amp;A, 가사·행정</span></label>
-              <label class="form-check" style="border-color:rgba(230,81,0,0.3);background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>노무 컨설팅 — 근로계약·취업규칙, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
+              <label class="form-check" style="border-color:rgba(230,81,0,0.3);background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>노무 컨설팅 — 중대 재해 처벌 관련, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
               <label class="form-check" style="border-color:rgba(201,168,76,0.4);background:rgba(201,168,76,0.06);"><input type="checkbox" name="topic" value="경영자 자산관리" /><span>경영자 자산관리 — 사업 소득·개인 자산 통합 관리</span></label>
               <label class="form-check" style="border-color:rgba(13,143,168,0.3);background:rgba(13,143,168,0.05);"><input type="checkbox" name="topic" value="AX(AI 전환) 컨설팅" /><span>🤖 AX(AI 전환) 컨설팅 — AI 도입 전략, 업무 자동화, 임직원 교육</span></label>
               <label class="form-check" style="border-color:rgba(107,114,128,0.3);background:rgba(107,114,128,0.05);"><input type="checkbox" name="topic" value="기타" /><span>기타 (아래에 내용 작성)</span></label>
@@ -1709,7 +1805,42 @@
       })
       .catch(() => {
         showToast('❌ 전송 오류. 010-5170-8020으로 직접 연락해 주세요.');
-        btn.textContent = '경정 청구 금액 확인하기 →';
+        btn.textContent = '상담 신청 →';
+        btn.disabled = false;
+      });
+  }
+
+  // ── 간단 신청 폼 ──
+  function handleQuickSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('quickBtn');
+
+    const topics = [...form.querySelectorAll('input[name="qtopic"]:checked')]
+      .map(cb => cb.value).join(', ');
+    if (!topics) {
+      showToast('상담 희망 분야를 1개 이상 선택해 주세요.');
+      return;
+    }
+
+    btn.textContent = '전송 중...';
+    btn.disabled = true;
+
+    const formData = new FormData();
+    formData.append('name',   form.elements['qname'].value);
+    formData.append('phone',  form.elements['qphone'].value);
+    formData.append('topics', topics);
+    formData.append('source', '간단신청');
+
+    if (typeof gtag === 'function') gtag('event', 'form_submit', { form: 'quick' });
+    fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+      .then(() => {
+        if (typeof gtag === 'function') gtag('event', 'consult_success', { form: 'quick' });
+        window.location.href = 'thanks.html';
+      })
+      .catch(() => {
+        showToast('❌ 전송 오류. 010-5170-8020으로 직접 연락해 주세요.');
+        btn.textContent = '상담 신청 →';
         btn.disabled = false;
       });
   }
