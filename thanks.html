@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>접수 완료 | 플러스원자문그룹</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231B3A6B'/><text x='50' y='68' text-anchor='middle' font-size='52' font-family='Arial' font-weight='bold' fill='%23C9A84C'>P+</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .thanks-wrap {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--gray-bg);
+      padding: 40px 24px;
+    }
+    .thanks-card {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: 0 8px 48px rgba(13,27,62,0.12);
+      padding: 56px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+    .thanks-icon { font-size: 64px; margin-bottom: 24px; }
+    .thanks-badge {
+      display: inline-block;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #28a745; background: rgba(40,167,69,0.10);
+      padding: 6px 18px; border-radius: 50px; margin-bottom: 20px;
+    }
+    .thanks-card h1 {
+      font-size: 28px; font-weight: 800; color: var(--navy-dark);
+      margin-bottom: 16px; line-height: 1.3;
+    }
+    .thanks-card p {
+      font-size: 16px; color: var(--gray-text); line-height: 1.8; margin-bottom: 32px;
+    }
+    .thanks-highlight {
+      background: linear-gradient(135deg, rgba(201,168,76,0.10), rgba(232,201,122,0.06));
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+      font-size: 14px; color: var(--navy-dark); font-weight: 600; line-height: 1.7;
+    }
+    .thanks-actions { display: flex; flex-direction: column; gap: 12px; }
+    .btn-kakao {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: #FEE500; color: #3A1D1D;
+      padding: 14px 24px; border-radius: 50px;
+      font-size: 15px; font-weight: 700; font-family: inherit;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-kakao:hover { background: #FFD600; transform: translateY(-2px); }
+    .btn-phone {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--navy-primary); color: white;
+      padding: 14px 24px; border-radius: 50px;
+      font-size: 15px; font-weight: 700; font-family: inherit;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-phone:hover { background: var(--navy-dark); transform: translateY(-2px); }
+    .btn-home {
+      font-size: 14px; color: var(--gray-text); text-decoration: none;
+      padding: 10px; display: block; transition: color 0.2s;
+    }
+    .btn-home:hover { color: var(--navy-primary); }
+    @media (max-width: 480px) {
+      .thanks-card { padding: 40px 24px; }
+      .thanks-card h1 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="thanks-wrap">
+  <div class="thanks-card">
+    <div class="thanks-icon">✅</div>
+    <div class="thanks-badge">접수 완료</div>
+    <h1>신청이 완료되었습니다!</h1>
+    <p>소중한 문의를 남겨주셔서 감사합니다.<br/>담당자가 검토 후 빠른 시간 내에 연락드리겠습니다.</p>
+    <div class="thanks-highlight">
+      📞 평일 기준 <strong>24시간 이내 연락</strong>드립니다.<br/>
+      급하신 경우 아래 버튼으로 바로 연락해 주세요.
+    </div>
+    <div class="thanks-actions">
+      <a href="https://pf.kakao.com/_xoAxmxb" target="_blank" rel="noopener" class="btn-kakao" onclick="track('kakao_click',{from:'thanks'})">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 11c0 2.99 1.657 5.611 4.177 7.133L5.07 21.5l3.74-2.03C9.84 19.804 10.91 20 12 20c5.523 0 10-3.477 10-9S17.523 3 12 3z"/></svg>
+        카카오 채널 상담
+      </a>
+      <a href="tel:010-5170-8020" class="btn-phone" onclick="track('phone_click',{from:'thanks'})">
+        📞 010-5170-8020 전화 연결
+      </a>
+      <a href="index.html" class="btn-home">← 홈으로 돌아가기</a>
+    </div>
+  </div>
+</div>
+<!-- GA4 전환 이벤트 자동 발송 -->
+<script>
+  function track(e, p) { if (typeof gtag === 'function') gtag('event', e, p || {}); }
+  track('consult_success', { page: 'thanks' });
+</script>
+</body>
+</html>

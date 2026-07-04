@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <title>중소기업 AI 전환(AX) 진단 | 플러스원자문그룹</title>
+  <meta name="description" content="중소기업도 AI를 도입할 수 있습니다. 29년 국방 AI 전문가와 함께하는 맞춤형 AX 전환 진단 — 무료 상담 신청" />
+
+  <!-- GA4 — G-XXXXXXXXXX 를 실제 측정 ID로 교체하세요 -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: #0a1628; color: #e2e8f0; line-height: 1.6; }
+
+    /* NAV */
+    nav { background: rgba(10,22,40,0.95); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-size: 1.05rem; font-weight: 700; color: #38bdf8; text-decoration: none; }
+    .nav-cta { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; padding: 0.45rem 1.1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* HERO */
+    .hero { background: linear-gradient(160deg, #0a1628 0%, #0c2340 40%, #063b5c 100%); padding: 5rem 1.5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 40% at 50% 60%, rgba(14,165,233,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-badge { display: inline-block; background: rgba(14,165,233,0.18); border: 1px solid rgba(14,165,233,0.4); color: #38bdf8; padding: 0.35rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+    .hero h1 { font-size: clamp(1.9rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.25; color: #fff; margin-bottom: 1.25rem; }
+    .hero h1 em { color: #38bdf8; font-style: normal; }
+    .hero-sub { font-size: 1.1rem; color: #94a3b8; max-width: 600px; margin: 0 auto 2.5rem; }
+    .hero-cta { display: inline-block; background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; padding: 0.9rem 2.2rem; border-radius: 8px; font-size: 1.05rem; font-weight: 700; text-decoration: none; box-shadow: 0 4px 20px rgba(14,165,233,0.35); }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(14,165,233,0.45); }
+    .hero-stat { display: flex; justify-content: center; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 1.9rem; font-weight: 800; color: #38bdf8; display: block; }
+    .stat-label { font-size: 0.8rem; color: #64748b; }
+
+    /* SECTION BASE */
+    section { padding: 4rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0ea5e9; margin-bottom: 0.6rem; }
+    .section-title { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: #94a3b8; max-width: 640px; }
+
+    /* PAIN POINTS */
+    .pain { background: #0d1f35; }
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .pain-card { background: #0a1628; border: 1px solid rgba(255,255,255,0.08); border-left: 4px solid #0ea5e9; border-radius: 10px; padding: 1.5rem; }
+    .pain-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .pain-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .pain-card p { font-size: 0.88rem; color: #94a3b8; line-height: 1.6; }
+
+    /* WHAT WE DO */
+    .what { background: #0a1628; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; counter-reset: step; }
+    .step-card { background: #0d1f35; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 1.5rem; position: relative; }
+    .step-card::before { counter-increment: step; content: counter(step); position: absolute; top: -0.9rem; left: 1.2rem; background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; font-size: 0.8rem; font-weight: 800; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .step-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.84rem; color: #94a3b8; line-height: 1.55; }
+
+    /* EXPERT */
+    .expert { background: #0d1f35; }
+    .expert-card { display: flex; gap: 2rem; align-items: flex-start; background: #0a1628; border: 1px solid rgba(14,165,233,0.25); border-top: 4px solid #0ea5e9; border-radius: 12px; padding: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .expert-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #0ea5e9, #0284c7); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+    .expert-info h3 { font-size: 1.15rem; font-weight: 800; color: #fff; margin-bottom: 0.35rem; }
+    .expert-info .role { font-size: 0.85rem; color: #0ea5e9; font-weight: 600; margin-bottom: 0.75rem; }
+    .expert-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .expert-tag { background: rgba(14,165,233,0.15); border: 1px solid rgba(14,165,233,0.3); color: #38bdf8; font-size: 0.76rem; padding: 0.25rem 0.65rem; border-radius: 4px; }
+    .expert-info p { font-size: 0.88rem; color: #94a3b8; line-height: 1.65; }
+
+    /* FORM */
+    .form-section { background: linear-gradient(160deg, #063b5c 0%, #0a1628 100%); }
+    .form-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    @media (max-width: 700px) { .form-wrap { grid-template-columns: 1fr; } }
+    .form-pitch h2 { font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .form-pitch ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .form-pitch li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.92rem; color: #cbd5e1; }
+    .form-pitch li::before { content: '✓'; color: #0ea5e9; font-weight: 700; flex-shrink: 0; }
+    .form-box { background: #fff; border-radius: 12px; padding: 2rem; }
+    .form-box h3 { font-size: 1.1rem; font-weight: 700; color: #1e293b; margin-bottom: 1.5rem; }
+    .field { margin-bottom: 1rem; }
+    .field label { display: block; font-size: 0.82rem; font-weight: 600; color: #475569; margin-bottom: 0.35rem; }
+    .field input, .field select { width: 100%; padding: 0.65rem 0.85rem; border: 1.5px solid #e2e8f0; border-radius: 7px; font-size: 0.92rem; color: #1e293b; background: #f8fafc; outline: none; font-family: inherit; }
+    .field input:focus, .field select:focus { border-color: #0ea5e9; background: #fff; }
+    .field select option { color: #1e293b; }
+    .form-submit { width: 100%; padding: 0.85rem; background: linear-gradient(135deg, #0ea5e9, #0284c7); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; margin-top: 0.5rem; font-family: inherit; }
+    .form-submit:hover { opacity: 0.88; }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-note { font-size: 0.76rem; color: #64748b; text-align: center; margin-top: 0.75rem; }
+
+    /* TOAST */
+    #toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(6rem); background: #1e293b; color: #e2e8f0; padding: 0.85rem 1.5rem; border-radius: 8px; font-size: 0.9rem; z-index: 999; transition: transform 0.3s ease; white-space: nowrap; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+    #toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* FOOTER */
+    footer { background: #060f1e; border-top: 1px solid rgba(255,255,255,0.07); padding: 2rem 1.5rem; text-align: center; font-size: 0.82rem; color: #475569; }
+    footer a { color: #0ea5e9; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">플러스원자문그룹</a>
+    <a href="#form" class="nav-cta">무료 AX 진단 신청</a>
+  </div>
+</nav>
+
+<div id="toast"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">중소기업 AI 전환 (AX) 전문</div>
+  <h1>중소기업도<br><em>AI를 도입할 수 있습니다</em></h1>
+  <p class="hero-sub">막막함·비용 걱정 NO. 29년 국방 AI 전문가가 우리 회사에 맞는 AX 로드맵을 직접 설계합니다.</p>
+  <a href="#form" class="hero-cta">무료 AX 진단 신청하기 →</a>
+  <div class="hero-stat">
+    <div class="stat-item"><span class="stat-num">29년</span><span class="stat-label">AI 전문 경력</span></div>
+    <div class="stat-item"><span class="stat-num">AISMP</span><span class="stat-label">AI 전략 경영 전문가</span></div>
+    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">맞춤형 진단</span></div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain">
+  <div class="section-inner">
+    <p class="section-tag">이런 고민 있으신가요?</p>
+    <h2 class="section-title">AI 도입, 왜 이렇게 어렵게 느껴질까요?</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">😰</div>
+        <h3>어디서부터 시작해야 할지 모르겠어요</h3>
+        <p>ChatGPT 써봤는데 업무에 제대로 적용이 안 됩니다. AI가 우리 회사에 맞는지도 모르겠어요.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💸</div>
+        <h3>비용이 너무 많이 들 것 같아요</h3>
+        <p>대기업이나 하는 거 아닌가요? 중소기업 예산으로는 무리라고 생각했습니다.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">👥</div>
+        <h3>직원들이 따라올 수 있을지 걱정돼요</h3>
+        <p>기술 도입해도 직원들이 안 쓰면 소용없죠. 변화 관리가 더 어렵습니다.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🤷</div>
+        <h3>효과가 있는지 검증이 안 돼요</h3>
+        <p>투자 대비 효과를 어떻게 측정해야 할지 모르겠습니다. 실패할까봐 두렵습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DO -->
+<section class="what">
+  <div class="section-inner">
+    <p class="section-tag">플러스원 AX 진단 프로세스</p>
+    <h2 class="section-title">4단계 맞춤형 AX 전환 로드맵</h2>
+    <p class="section-sub">현장 진단부터 실행 지원까지, 중소기업 눈높이에 맞게 단계별로 함께합니다.</p>
+    <div class="steps">
+      <div class="step-card">
+        <h3>현황 진단</h3>
+        <p>업무 프로세스·데이터 현황·직원 역량을 종합 분석해 AI 도입 준비도를 평가합니다.</p>
+      </div>
+      <div class="step-card">
+        <h3>기회 발굴</h3>
+        <p>반복 업무·비용 절감·매출 증대 관점에서 AI 적용 가능한 영역을 우선순위화합니다.</p>
+      </div>
+      <div class="step-card">
+        <h3>로드맵 설계</h3>
+        <p>예산·인력·일정을 고려한 단계별 AX 실행 계획을 맞춤 설계합니다.</p>
+      </div>
+      <div class="step-card">
+        <h3>실행 지원</h3>
+        <p>도구 선정·직원 교육·성과 측정까지 전 과정을 파트너로서 함께 실행합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERT -->
+<section class="expert">
+  <div class="section-inner">
+    <p class="section-tag">담당 전문가</p>
+    <h2 class="section-title">검증된 AI 전문가가 직접 진단합니다</h2>
+    <div class="expert-card">
+      <div class="expert-avatar">👨‍💼</div>
+      <div class="expert-info">
+        <h3>김정우 대표이사</h3>
+        <div class="role">플러스원자문그룹 | AI 전환 전략 총괄</div>
+        <div class="expert-tags">
+          <span class="expert-tag">AISMP (AI전략경영전문가)</span>
+          <span class="expert-tag">정보통신공학 박사수료</span>
+          <span class="expert-tag">국방 AI 29년</span>
+          <span class="expert-tag">중소기업 AX 컨설팅</span>
+        </div>
+        <p>국방 분야 29년 AI 프로젝트 경험을 바탕으로, 예산이 제한된 환경에서도 실질적인 성과를 내는 AX 전환 전략을 전문으로 합니다. "대기업만의 AI"라는 편견을 깨고 중소기업도 실현 가능한 방법으로 안내합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="section-inner">
+    <div class="form-wrap">
+      <div class="form-pitch">
+        <p class="section-tag">무료 AX 진단 신청</p>
+        <h2>지금 신청하시면<br>전문가가 직접<br>연락드립니다</h2>
+        <ul>
+          <li>우리 회사 AI 도입 가능성 진단</li>
+          <li>업종별 맞춤 AX 사례 공유</li>
+          <li>예산 범위 내 실행 방안 제시</li>
+          <li>24시간 내 담당자 연락</li>
+          <li>상담 비용 전액 무료</li>
+        </ul>
+        <p style="margin-top:1.5rem; font-size:0.88rem; color:#64748b;">
+          📞 <a href="tel:01051708020" style="color:#0ea5e9;">010-5170-8020</a><br>
+          카카오 채널: <a href="https://pf.kakao.com/_xnKxedn" target="_blank" style="color:#0ea5e9;">플러스원자문그룹</a>
+        </p>
+      </div>
+      <div class="form-box">
+        <h3>상담 신청</h3>
+        <form id="axForm">
+          <div class="field">
+            <label for="name">성함 *</label>
+            <input type="text" id="name" name="name" placeholder="홍길동" required />
+          </div>
+          <div class="field">
+            <label for="phone">연락처 *</label>
+            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required />
+          </div>
+          <div class="field">
+            <label for="bizType">업종</label>
+            <select id="bizType" name="bizType">
+              <option value="">업종 선택</option>
+              <option value="제조업">제조업</option>
+              <option value="도소매">도소매</option>
+              <option value="건설업">건설업</option>
+              <option value="서비스업">서비스업</option>
+              <option value="IT/기술">IT/기술</option>
+              <option value="물류/유통">물류/유통</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="employees">직원 수</label>
+            <select id="employees" name="employees">
+              <option value="">직원 수 선택</option>
+              <option value="5명 미만">5명 미만</option>
+              <option value="5~20명">5~20명</option>
+              <option value="20~50명">20~50명</option>
+              <option value="50~100명">50~100명</option>
+              <option value="100명 이상">100명 이상</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">무료 AX 진단 신청하기 →</button>
+          <p class="form-note">개인정보는 상담 목적으로만 사용됩니다.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>플러스원자문그룹 주식회사 | 대표이사 김정우 · 엄남일</p>
+  <p style="margin-top:0.4rem;">📞 <a href="tel:01051708020">010-5170-8020</a> | <a href="index.html">← 홈으로</a></p>
+</footer>
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzToU8HN-zGw3tmGfohx6s1cl0fJ92dAVT-Mr8UQE0QLOSjxgwHjR_BaWZFVeS3bUBOfA/exec';
+
+  function track(event, params) {
+    if (typeof gtag === 'function') gtag('event', event, params || {});
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // CTA tracking
+  document.querySelectorAll('.hero-cta, .nav-cta, .form-submit').forEach(el =>
+    el.addEventListener('click', () => track('cta_click', { label: el.textContent.trim(), from: 'ai-transformation' })));
+
+  // Phone / Kakao tracking
+  document.querySelectorAll('a[href^="tel:"]').forEach(el =>
+    el.addEventListener('click', () => track('phone_click', { from: 'ai-transformation' })));
+  document.querySelectorAll('a[href*="kakao"]').forEach(el =>
+    el.addEventListener('click', () => track('kakao_click', { from: 'ai-transformation' })));
+
+  // Form tracking
+  let _formStarted = false;
+  document.getElementById('axForm').addEventListener('input', () => {
+    if (!_formStarted) { _formStarted = true; track('form_start', { form: 'ax-transformation' }); }
+  });
+
+  document.getElementById('axForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!name || !phone) { showToast('성함과 연락처를 입력해 주세요.'); return; }
+
+    btn.textContent = '신청 중...';
+    btn.disabled = true;
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('phone', phone);
+    formData.append('bizType', document.getElementById('bizType').value);
+    formData.append('employees', document.getElementById('employees').value);
+    formData.append('service', 'AI전환(AX)진단');
+    formData.append('page', 'ai-transformation');
+
+    track('form_submit', { form: 'ax-transformation' });
+
+    fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+      .then(() => {
+        track('consult_success', { form: 'ax-transformation' });
+        window.location.href = 'thanks.html';
+      })
+      .catch(() => {
+        showToast('❌ 전송 오류. 010-5170-8020으로 직접 연락해 주세요.');
+        btn.textContent = '무료 AX 진단 신청하기 →';
+        btn.disabled = false;
+      });
+  });
+</script>
+</body>
+</html>

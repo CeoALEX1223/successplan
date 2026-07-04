@@ -1701,10 +1701,14 @@
     formData.append('revenue', form.elements['revenue'].value);
     formData.append('message', form.elements['message'].value);
 
+    if (typeof gtag === 'function') gtag('event', 'form_submit', { form: 'contact' });
     fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
-      .finally(() => {
-        showToast('✅ 상담 신청이 완료되었습니다! 곧 연락드리겠습니다.');
-        form.reset();
+      .then(() => {
+        if (typeof gtag === 'function') gtag('event', 'consult_success', { form: 'contact' });
+        window.location.href = 'thanks.html';
+      })
+      .catch(() => {
+        showToast('❌ 전송 오류. 010-5170-8020으로 직접 연락해 주세요.');
         btn.textContent = '경정 청구 금액 확인하기 →';
         btn.disabled = false;
       });
