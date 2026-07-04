@@ -761,44 +761,52 @@
     .case-result-desc { font-size: 13px; color: var(--navy-dark); font-weight: 600; line-height: 1.5; }
 
     /* ─── 간단 신청 섹션 ─── */
-    #quick-apply { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); padding: 72px 0; }
-    #quick-apply .section-label { color: var(--gold); background: rgba(201,168,76,0.15); }
-    #quick-apply .section-title { color: var(--white); }
-    #quick-apply .section-sub { color: rgba(255,255,255,0.65); }
-    .quick-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; margin-top: 48px; }
-    .quick-box { background: var(--white); border-radius: var(--radius); padding: 2rem; box-shadow: 0 8px 40px rgba(0,0,0,0.18); }
-    .quick-box h3 { font-size: 17px; font-weight: 700; color: var(--navy-dark); margin-bottom: 20px; }
+    /* ─── 간단 상담 신청 버튼 ─── */
+    .btn-quick {
+      display: inline-block; background: var(--gold); color: var(--navy-dark);
+      font-weight: 700; padding: 14px 28px; border-radius: 8px; font-size: 15px;
+      border: none; cursor: pointer; font-family: inherit;
+      transition: all 0.2s; text-decoration: none; line-height: 1.4;
+    }
+    .btn-quick:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,168,76,0.35); }
+
+    /* ─── CTA 스트립 (섹션 구분 배너) ─── */
+    .cta-strip { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-primary) 100%); padding: 56px 0; text-align: center; }
+    .cta-strip h3 { font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .cta-strip p { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 1.8rem; }
+    .cta-strip-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── 간단 신청 모달 ─── */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 2000;
+      display: flex; align-items: center; justify-content: center; padding: 1rem;
+      opacity: 0; visibility: hidden; transition: opacity 0.25s, visibility 0.25s;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal-card {
+      background: #fff; border-radius: 16px; padding: 2rem;
+      width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+      position: relative; transform: translateY(30px);
+      transition: transform 0.25s; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .modal-overlay.open .modal-card { transform: translateY(0); }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: none; border: none; font-size: 1.5rem;
+      cursor: pointer; color: #9ca3af; line-height: 1;
+    }
+    .modal-close:hover { color: #374151; }
+    .modal-title { font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.35rem; }
+    .modal-sub { font-size: 0.83rem; color: var(--gray-text); margin-bottom: 1.4rem; line-height: 1.5; }
     .quick-chip-group { display: flex; flex-wrap: wrap; gap: 8px; }
-    .quick-chip { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+    .quick-chip { display: flex; align-items: center; cursor: pointer; }
     .quick-chip input[type="checkbox"] { display: none; }
     .quick-chip span {
-      display: inline-block;
-      padding: 6px 13px;
-      border-radius: 20px;
-      border: 1.5px solid #d1d5db;
-      font-size: 13px;
-      font-weight: 500;
-      color: #374151;
-      background: #f9fafb;
-      transition: all 0.18s;
-      line-height: 1.4;
-      cursor: pointer;
+      display: inline-block; padding: 7px 14px; border-radius: 20px;
+      border: 1.5px solid #d1d5db; font-size: 13px; font-weight: 500;
+      color: #374151; background: #f9fafb; transition: all 0.18s; line-height: 1.4; cursor: pointer;
     }
-    .quick-chip input:checked + span {
-      background: var(--navy-primary);
-      border-color: var(--navy-primary);
-      color: var(--white);
-      font-weight: 600;
-    }
-    .quick-pitch ul { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
-    .quick-pitch li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: rgba(255,255,255,0.8); }
-    .quick-pitch li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
-    .quick-phone { margin-top: 28px; font-size: 14px; color: rgba(255,255,255,0.6); }
-    .quick-phone a { color: var(--gold-light); font-weight: 600; }
-    @media (max-width: 800px) {
-      .quick-wrap { grid-template-columns: 1fr; }
-      .quick-pitch { order: -1; }
-    }
+    .quick-chip input:checked + span { background: var(--navy-primary); border-color: var(--navy-primary); color: #fff; font-weight: 600; }
 
     /* ─── Fade-in animation ─── */
     .fade-in {
@@ -847,6 +855,7 @@
       </p>
       <div class="hero-btns">
         <a href="#contact" class="btn btn-primary">경정 청구 금액 확인하기 →</a>
+        <button class="btn-quick" onclick="openModal()">간단 상담 신청 →</button>
         <a href="#services" class="btn btn-outline">서비스 알아보기</a>
       </div>
       <div class="hero-stats">
@@ -1102,8 +1111,9 @@
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:40px;" class="fade-in">
+    <div style="text-align:center;margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;" class="fade-in">
       <a href="consult.html" class="btn btn-primary">경정 청구 금액 확인하기 →</a>
+      <button class="btn-quick" onclick="openModal()">간단 상담 신청 →</button>
     </div>
   </div>
 </section>
@@ -1360,6 +1370,18 @@
   </div>
 </section>
 
+<!-- ── CTA 스트립 (서비스 하단) ── -->
+<div class="cta-strip">
+  <div class="container">
+    <h3>어떤 분야부터 시작할지 모르겠다면?</h3>
+    <p>성함과 연락처만 남겨 주시면 담당 전문가가 직접 연락드립니다. 첫 상담 무료.</p>
+    <div class="cta-strip-btns">
+      <button class="btn-quick" onclick="openModal()">간단 상담 신청 →</button>
+      <a href="tel:01051708020" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">📞 010-5170-8020</a>
+    </div>
+  </div>
+</div>
+
 <!-- ── 성공사례 ── -->
 <section id="cases" class="section">
   <div class="container">
@@ -1412,68 +1434,27 @@
         <div style="font-size:40px;margin-bottom:20px;">💡</div>
         <div style="font-size:14px;font-weight:700;color:var(--gold-light);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;">경정청구 대상이라면?</div>
         <p style="font-size:15px;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:28px;">세금은 잘못 납부했더라도<br/><strong style="color:var(--gold);">최대 5년 이내</strong>라면 돌려받을 수 있습니다.<br/>먼저 무료로 검토해 드립니다.</p>
-        <a href="consult.html" class="btn btn-primary" style="font-size:15px;">무료 경정청구 검토 신청 →</a>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;">
+          <a href="consult.html" class="btn btn-primary" style="font-size:15px;">무료 경정청구 검토 신청 →</a>
+          <button class="btn-quick" onclick="openModal()" style="font-size:15px;">간단 상담 신청 →</button>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ── 간단 신청 ── -->
-<section id="quick-apply">
+<!-- ── CTA 스트립 (SNS 위) ── -->
+<div class="cta-strip">
   <div class="container">
-    <div class="fade-in text-center">
-      <span class="section-label">Quick Apply</span>
-      <h2 class="section-title">간단 상담 신청</h2>
-      <p class="section-sub">성함과 연락처, 원하시는 분야만 선택하시면 담당 전문가가 직접 연락드립니다.</p>
-    </div>
-    <div class="quick-wrap">
-      <!-- 왼쪽 안내 -->
-      <div class="quick-pitch fade-in">
-        <ul>
-          <li>첫 상담 완전 무료</li>
-          <li>24시간 내 담당자 직접 연락</li>
-          <li>재무·세무·법무·노무·AX 원스톱 해결</li>
-          <li>개인정보는 상담 목적으로만 사용</li>
-        </ul>
-        <p class="quick-phone">
-          📞 즉시 전화 상담: <a href="tel:01051708020">010-5170-8020</a>
-        </p>
-      </div>
-      <!-- 오른쪽 폼 -->
-      <div class="quick-box fade-in">
-        <h3>상담 신청</h3>
-        <form id="quickForm" onsubmit="handleQuickSubmit(event)">
-          <div class="form-row" style="margin-bottom:14px;">
-            <div class="form-group" style="margin-bottom:0;">
-              <label>성함 <span style="color:#e53e3e;">*</span></label>
-              <input type="text" name="qname" placeholder="홍길동" required />
-            </div>
-            <div class="form-group" style="margin-bottom:0;">
-              <label>연락처 <span style="color:#e53e3e;">*</span></label>
-              <input type="tel" name="qphone" placeholder="010-0000-0000" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>상담 희망 분야 <span style="color:#e53e3e;">*</span> <span style="font-weight:400;color:#888;">(복수 선택)</span></label>
-            <div class="quick-chip-group">
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="경영재무" /><span>📈 경영재무</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="세무·절세" /><span>🧾 세무·절세</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="법인 설립·전환" /><span>🏢 법인 설립·전환</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="경정청구·세금환급" /><span>💰 경정청구·환급</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="법무 컨설팅" /><span>⚖️ 법무</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="노무 컨설팅" /><span>👥 노무</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="경영자 자산관리" /><span>🏦 자산관리</span></label>
-              <label class="quick-chip"><input type="checkbox" name="qtopic" value="AX(AI 전환)" /><span>🤖 AX(AI 전환)</span></label>
-            </div>
-          </div>
-          <button type="submit" class="form-submit" id="quickBtn" style="margin-top:8px;">상담 신청 →</button>
-          <p class="form-privacy">입력하신 정보는 상담 목적으로만 활용됩니다.</p>
-        </form>
-      </div>
+    <h3>지금 바로 간단하게 신청하세요</h3>
+    <p>성함·연락처·희망 분야만 선택하면 끝 — 24시간 내 전문가가 직접 연락드립니다.</p>
+    <div class="cta-strip-btns">
+      <button class="btn-quick" onclick="openModal()">간단 상담 신청 →</button>
+      <a href="http://pf.kakao.com/_VHesX" target="_blank" rel="noopener" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.4);">💛 카카오 채널 상담</a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ── SNS / Insight ── -->
 <section id="sns" class="section-sm">
@@ -1747,6 +1728,42 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+<!-- ── 간단 상담 신청 모달 ── -->
+<div class="modal-overlay" id="quickModal" onclick="handleOverlayClick(event)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()" title="닫기">×</button>
+    <p class="modal-title">간단 상담 신청</p>
+    <p class="modal-sub">성함·연락처·희망 분야만 선택하시면 24시간 내 담당 전문가가 직접 연락드립니다. 첫 상담 무료.</p>
+    <form id="modalForm" onsubmit="handleModalSubmit(event)">
+      <div class="form-row" style="margin-bottom:14px;">
+        <div class="form-group" style="margin-bottom:0;">
+          <label>성함 <span style="color:#e53e3e;">*</span></label>
+          <input type="text" id="modalName" name="modalName" placeholder="홍길동" required />
+        </div>
+        <div class="form-group" style="margin-bottom:0;">
+          <label>연락처 <span style="color:#e53e3e;">*</span></label>
+          <input type="tel" id="modalPhone" name="modalPhone" placeholder="010-0000-0000" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="font-size:13px;font-weight:600;color:var(--navy-primary);display:block;margin-bottom:8px;">상담 희망 분야 <span style="color:#e53e3e;">*</span> <span style="font-weight:400;color:#888;">(복수 선택)</span></label>
+        <div class="quick-chip-group">
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="경영재무" /><span>📈 경영재무</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="세무·절세" /><span>🧾 세무·절세</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="법인 설립·전환" /><span>🏢 법인 설립·전환</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="경정청구·세금환급" /><span>💰 경정청구·환급</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="법무 컨설팅" /><span>⚖️ 법무</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="노무 컨설팅" /><span>👥 노무</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="경영자 자산관리" /><span>🏦 자산관리</span></label>
+          <label class="quick-chip"><input type="checkbox" name="mtopic" value="AX(AI 전환)" /><span>🤖 AX(AI 전환)</span></label>
+        </div>
+      </div>
+      <button type="submit" class="form-submit" id="modalBtn" style="margin-top:8px;">상담 신청 →</button>
+      <p class="form-privacy">입력하신 정보는 상담 목적으로만 활용됩니다.</p>
+    </form>
+  </div>
+</div>
+
 <script>
   // ── Navbar scroll effect ──
   const navbar = document.getElementById('navbar');
@@ -1810,32 +1827,41 @@
       });
   }
 
-  // ── 간단 신청 폼 ──
-  function handleQuickSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = document.getElementById('quickBtn');
+  // ── 간단 신청 모달 ──
+  function openModal() {
+    document.getElementById('quickModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modalName').focus();
+  }
+  function closeModal() {
+    document.getElementById('quickModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('quickModal')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    const topics = [...form.querySelectorAll('input[name="qtopic"]:checked')]
+  function handleModalSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('modalBtn');
+    const topics = [...document.querySelectorAll('input[name="mtopic"]:checked')]
       .map(cb => cb.value).join(', ');
-    if (!topics) {
-      showToast('상담 희망 분야를 1개 이상 선택해 주세요.');
-      return;
-    }
+    if (!topics) { showToast('상담 희망 분야를 1개 이상 선택해 주세요.'); return; }
 
     btn.textContent = '전송 중...';
     btn.disabled = true;
 
     const formData = new FormData();
-    formData.append('name',   form.elements['qname'].value);
-    formData.append('phone',  form.elements['qphone'].value);
+    formData.append('name',   document.getElementById('modalName').value);
+    formData.append('phone',  document.getElementById('modalPhone').value);
     formData.append('topics', topics);
     formData.append('source', '간단신청');
 
-    if (typeof gtag === 'function') gtag('event', 'form_submit', { form: 'quick' });
+    if (typeof gtag === 'function') gtag('event', 'form_submit', { form: 'modal-quick' });
     fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
       .then(() => {
-        if (typeof gtag === 'function') gtag('event', 'consult_success', { form: 'quick' });
+        if (typeof gtag === 'function') gtag('event', 'consult_success', { form: 'modal-quick' });
         window.location.href = 'thanks.html';
       })
       .catch(() => {
