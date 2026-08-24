@@ -200,17 +200,17 @@
       <h2 class="section-title">원하시는 상담 방식을 선택하세요</h2>
     </div>
     <div class="method-grid">
-      <div class="method-card fade-in" onclick="selectMethod(this)">
+      <div class="method-card fade-in" onclick="selectMethod(this, 'tel')">
         <div class="m-icon">📞</div>
         <h3>전화 상담</h3>
-        <p><a href="tel:010-5170-8020">010-5170-8020</a><br/>평일 10:00 ~ 17:00</p>
+        <p><a href="tel:010-5170-8020" onclick="event.stopPropagation()">010-5170-8020</a><br/>평일 10:00 ~ 17:00</p>
       </div>
-      <div class="method-card fade-in" onclick="selectMethod(this)">
+      <div class="method-card fade-in" onclick="selectMethod(this, 'kakao')">
         <div class="m-icon">💛</div>
         <h3>카카오 채널</h3>
-        <p><a href="http://pf.kakao.com/_VHesX" target="_blank" rel="noopener">@플러스원자문그룹</a><br/>24시간 메시지 접수</p>
+        <p><a href="http://pf.kakao.com/_VHesX" target="_blank" rel="noopener" onclick="event.stopPropagation()">@플러스원자문그룹</a><br/>24시간 메시지 접수</p>
       </div>
-      <div class="method-card fade-in" onclick="selectMethod(this)">
+      <div class="method-card fade-in" onclick="selectMethod(this, 'online')">
         <div class="m-icon">📝</div>
         <h3>온라인 신청</h3>
         <p>아래 양식 작성<br/>빠른 시간 안에 연락드립니다</p>
@@ -237,7 +237,7 @@
 
       <div style="display:flex;flex-direction:column;align-items:center;text-align:center;width:140px;padding:0 8px;">
         <div style="width:52px;height:52px;border-radius:50%;background:rgba(201,168,76,0.2);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:10px;position:relative;">
-          📞<span style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--gold);color:var(--navy-dark);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span>
+          ✅<span style="position:absolute;top:-6px;right:-6px;width:20px;height:20px;border-radius:50%;background:var(--gold);color:var(--navy-dark);font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;">2</span>
         </div>
         <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:4px;">확인 연락</div>
         <div style="font-size:11px;color:rgba(255,255,255,0.45);">1영업일 이내</div>
@@ -379,7 +379,7 @@
               <!-- 법무 — purple -->
               <label class="form-check" style="border-color:rgba(92,53,160,0.3); background:rgba(92,53,160,0.05);"><input type="checkbox" name="topic" value="법무 컨설팅" /><span>⚖️ 법무 컨설팅 — 기업법무, 소송·도산, 계약·M&amp;A, 가사·행정</span></label>
               <!-- 노무 — orange -->
-              <label class="form-check" style="border-color:rgba(230,81,0,0.3); background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>👥 노무 컨설팅 — 근로계약·취업규칙, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
+              <label class="form-check" style="border-color:rgba(230,81,0,0.3); background:rgba(230,81,0,0.05);"><input type="checkbox" name="topic" value="노무 컨설팅" /><span>👥 노무 컨설팅 — 중대재해처벌 관련, 임금·퇴직금 분쟁, 부당해고, 가맹거래</span></label>
               <!-- 자산관리 — gold -->
               <label class="form-check" style="border-color:rgba(201,168,76,0.4); background:rgba(201,168,76,0.06);"><input type="checkbox" name="topic" value="경영자 자산관리" /><span>🏦 경영자 자산관리 — 사업 소득·개인 자산 통합 관리</span></label>
               <!-- AX — teal -->
@@ -595,9 +595,17 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  function selectMethod(el) {
+  function selectMethod(el, type) {
     document.querySelectorAll('.method-card').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
+    if (type === 'tel') {
+      window.location.href = 'tel:010-5170-8020';
+    } else if (type === 'kakao') {
+      window.open('http://pf.kakao.com/_VHesX', '_blank', 'noopener');
+    } else if (type === 'online') {
+      const form = document.getElementById('consultForm');
+      if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   function toggleFaq(el) {
