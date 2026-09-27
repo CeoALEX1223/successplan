@@ -102,7 +102,7 @@
     function place(){
       var ks=document.querySelectorAll('a[href*="pf.kakao.com"],a[href*="kakao"],[class*="kakao"],[id*="kakao"]'),fixed=null;
       for(var n=0;n<ks.length&&!fixed;n++){var el=ks[n];while(el&&el!==document.body){if(el!==a&&getComputedStyle(el).position==='fixed'){fixed=el;break}el=el.parentElement}}
-      if(fixed){var r=fixed.getBoundingClientRect();if(r.height>0){a.style.bottom=(window.innerHeight-r.top+10)+'px';a.style.right=Math.max(8,window.innerWidth-r.right)+'px';return}}
+      if(fixed){var r=fixed.getBoundingClientRect();if(r.height>0){a.style.bottom=(window.innerHeight-r.top+10)+'px';a.style.right=Math.max(8,document.documentElement.clientWidth-r.right)+'px';return}}
       a.style.bottom='76px';a.style.right='16px';
     }
     place();window.addEventListener('resize',place);window.addEventListener('load',place);setTimeout(place,1500);
