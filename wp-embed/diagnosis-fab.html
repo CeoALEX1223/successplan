@@ -21,8 +21,8 @@
     a.innerHTML='<span class="po-badge">무료</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="18" rx="2"/><path d="M9 3.5h6v2.5H9z" fill="currentColor"/><path d="M8.5 13.5h2l1.3-2.6 1.8 5 1.4-2.4h1.5"/></svg><span class="po-txt">재무진단</span>';
     document.body.appendChild(a);
     function place(){
-      var k=document.querySelector('a[href*="pf.kakao.com"]'),el=k,fixed=null;
-      while(el&&el!==document.body){if(getComputedStyle(el).position==='fixed'){fixed=el;break}el=el.parentElement}
+      var ks=document.querySelectorAll('a[href*="pf.kakao.com"],a[href*="kakao"],[class*="kakao"],[id*="kakao"]'),fixed=null;
+      for(var n=0;n<ks.length&&!fixed;n++){var el=ks[n];while(el&&el!==document.body){if(el!==a&&getComputedStyle(el).position==='fixed'){fixed=el;break}el=el.parentElement}}
       if(fixed){var r=fixed.getBoundingClientRect();if(r.height>0){a.style.bottom=(window.innerHeight-r.top+10)+'px';a.style.right=Math.max(8,window.innerWidth-r.right)+'px';return}}
       a.style.bottom='76px';a.style.right='16px';
     }
