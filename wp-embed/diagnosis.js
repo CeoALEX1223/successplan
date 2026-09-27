@@ -64,6 +64,7 @@ var root=$('pd'),main=$('pd-main'),prevBtn=$('pd-prev'),nextBtn=$('pd-next');
 function scrollTop(){var y=root.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo(0,Math.max(0,y))}
 function go(n){S.step=Math.max(0,Math.min(LAST,n));save();render();scrollTop()}
 prevBtn.onclick=function(){go(S.step-1)};
+var heroCta=$('pd-hero-cta');if(heroCta)heroCta.onclick=function(){var c=$('pd-start');if(c){var y=c.getBoundingClientRect().top+window.pageYOffset-90;window.scrollTo({top:y,behavior:'smooth'});setTimeout(function(){var i=$('pd-company');if(i)i.focus({preventScroll:true})},450)}};
 var armed=false;
 nextBtn.onclick=function(){
   if(S.step===CONTACT){submit();return}
@@ -80,28 +81,25 @@ nextBtn.onclick=function(){
 
 function render(){
   var st=S.step;
+  var hero=$('pd-hero');if(hero)hero.hidden=st!==0;
   $('pd-stepname').textContent=st===0?'':(Math.min(st,CONTACT))+'/'+CONTACT+' · '+STEPS[st];
   $('pd-prog').style.width=(Math.min(st,CONTACT)/CONTACT*100)+'%';
   prevBtn.disabled=st===0;
-  prevBtn.hidden=st===LAST;
-  nextBtn.textContent=st===0?'진단 시작하기':st===CONTACT?'진단 결과 확인':st===LAST?'새 진단 시작':'다음';
-  $('pd-nav').style.gridTemplateColumns=st===LAST?'1fr':'1fr 2fr';$('pd-nav').style.position=st===LAST?'static':'';
+  prevBtn.hidden=st===LAST||st===0;var top=root.querySelector('.pd-top');if(top)top.hidden=st===0;
+  nextBtn.textContent=st===0?'5분 무료 진단 시작하기':st===CONTACT?'진단 결과 확인':st===LAST?'새 진단 시작':'다음';
+  $('pd-nav').style.gridTemplateColumns=(st===LAST||st===0)?'1fr':'1fr 2fr';$('pd-nav').style.position=st===LAST?'static':'';
   if(st===0)renderCover();else if(st===1)renderFin();else if(st===CONTACT)renderContact();else if(st===LAST)renderResult();else renderArea(AREAS[st-2]);
 }
 
 function renderCover(){
-  main.innerHTML='<div class="pd-screen">'+
-   '<section class="pd-card pd-cover"><span class="pd-eyebrow">사업자 재무주치의 · 플러스원자문그룹</span>'+
-   '<h1>사업자 재무건강 진단지</h1>'+
-   '<p class="pd-lead">사업자를 위한 종합적인 경영 자문을 최고의 전문가 그룹과 함께, 자산관리 / 법률자문 / 세무회계 / 인사노무 / 부동산 / 투자분석 / R&amp;D / 인증업무 등 다양한 분야에서 최적의 해결안을 제공합니다.</p>'+
-   '<div class="pd-facts"><span>문항 <b>28</b>개</span><span>재무지표 <b>8</b>개</span><span>소요 약 <b>5</b>분</span><span>비용 <b>무료</b></span></div>'+
-   '<div class="pd-philo"><div><b>소의(小醫)</b>당면한 세무·자금 문제를 고친다</div><div><b>중의(中醫)</b>대표와 가족, 사람을 돌본다</div><div><b>대의(大醫)</b>기업의 구조와 미래를 다스린다</div></div></section>'+
-   '<section class="pd-card"><div class="pd-fields">'+
+  main.innerHTML='<div class="pd-screen"><section class="pd-card pd-cover" id="pd-start"><span class="pd-eyebrow">진단 시작</span>'+
+   '<h2 style="font-size:22px">어느 회사를 진단할까요?</h2>'+
+   '<div class="pd-fields">'+
    '<label class="pd-field">회사명<input id="pd-company" autocomplete="organization" value="'+esc(S.company)+'" placeholder="예: ○○산업㈜"></label>'+
    '<label class="pd-field">업종<input id="pd-industry" value="'+esc(S.industry)+'" placeholder="예: 제조업, 도소매업"></label></div>'+
    '<div class="pd-field">사업자 유형<div class="pd-seg" role="group" aria-label="사업자 유형">'+
-   ['법인사업자','개인사업자'].map(function(t){return '<button type="button" data-b="'+t+'" aria-pressed="'+(S.bizType===t)+'">'+t+'</button>'}).join('')+'</div></div></section>'+
-   byline()+'</div>';
+   ['법인사업자','개인사업자'].map(function(t){return '<button type="button" data-b="'+t+'" aria-pressed="'+(S.bizType===t)+'">'+t+'</button>'}).join('')+'</div></div>'+
+   '<p class="pd-note">입력하신 내용은 진단 결과 안내와 상담 목적으로만 사용됩니다.</p></section></div>';
   $('pd-company').oninput=function(e){S.company=e.target.value;save()};
   $('pd-industry').oninput=function(e){S.industry=e.target.value;save()};
   main.querySelectorAll('[data-b]').forEach(function(b){b.onclick=function(){S.bizType=b.dataset.b;save();main.querySelectorAll('[data-b]').forEach(function(x){x.setAttribute('aria-pressed',x===b)})}});
