@@ -232,7 +232,7 @@ function renderResult(){
    byline()+'</div>';
 }
 
-function byline(){return '<div class="pd-byline"><b>이근종 CFP®</b> | 플러스원자문그룹 대표. 25년 동안 법인·개인사업자 재무관리를 실무로 다뤘으며, 사업자 재무진단·경영자 자산관리·가업승계 재무설계를 담당합니다.</div>'}
+function byline(){return '<div class="pd-byline"><b>이근종 CFP®</b> | 플러스원자문그룹 대표. 25년 동안 사업자를 위한 재무관리를 실무로 담당했으며, 사업자 재무진단·경영자 자산관리·가업승계 재무설계를 전문적으로 상담합니다.</div>'}
 
 render();
 })();
