@@ -1,4 +1,83 @@
 <script>
+(function(){
+  try {
+    var catMeta = document.querySelector('meta[property="article:section"]');
+    if (catMeta && catMeta.content) {
+      var cat = catMeta.content;
+      var title = document.title.split(' - ')[0].trim();
+      sessionStorage.setItem('sp_referrer_category', cat);
+      sessionStorage.setItem('sp_referrer_post_title', title);
+      var visited = [];
+      try { visited = JSON.parse(sessionStorage.getItem('sp_visited_categories')||'[]'); } catch(e){}
+      if (visited.indexOf(cat) === -1) visited.push(cat);
+      sessionStorage.setItem('sp_visited_categories', JSON.stringify(visited));
+    }
+
+    function getLeadParams() {
+      var form = document.getElementById('consultForm-1') || document.querySelector('form');
+      var topics = [];
+      if (form) {
+        topics = Array.prototype.slice.call(form.querySelectorAll('input[name="topic"]:checked')).map(function(i){return i.value;});
+      }
+      var bizTypeEl = form ? form.querySelector('select[name="bizType"]') : null;
+      var visited = [];
+      try { visited = JSON.parse(sessionStorage.getItem('sp_visited_categories')||'[]'); } catch(e){}
+      return {
+        lead_topics: topics.join(', '),
+        lead_biz_type: bizTypeEl ? bizTypeEl.value : '',
+        referrer_category: sessionStorage.getItem('sp_referrer_category') || '',
+        referrer_post_title: sessionStorage.getItem('sp_referrer_post_title') || '',
+        visited_categories: visited.join(', '),
+        page_path: location.pathname
+      };
+    }
+
+    function fireLeadEvent() {
+      if (window.__sp_lead_fired) return;
+      window.__sp_lead_fired = true;
+      var params = getLeadParams();
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', params);
+      }
+    }
+
+    function watchOverlay(el) {
+      if (!el || el.__sp_observed) return;
+      el.__sp_observed = true;
+      if (el.classList.contains('show')) { fireLeadEvent(); return; }
+      var mo = new MutationObserver(function(muts){
+        muts.forEach(function(m){
+          if (m.attributeName === 'class' && el.classList.contains('show')) {
+            fireLeadEvent();
+          }
+        });
+      });
+      mo.observe(el, {attributes:true, attributeFilter:['class']});
+    }
+
+    var existing = document.querySelector('.success-overlay');
+    if (existing) watchOverlay(existing);
+
+    var bodyObserver = new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        if (!m.addedNodes) return;
+        m.addedNodes.forEach(function(n){
+          if (n.nodeType === 1) {
+            if (n.classList && n.classList.contains('success-overlay')) watchOverlay(n);
+            var found = n.querySelector ? n.querySelector('.success-overlay') : null;
+            if (found) watchOverlay(found);
+          }
+        });
+      });
+    });
+    bodyObserver.observe(document.body, {childList:true, subtree:true});
+  } catch(e) {
+    console.error('[SP lead tracking error]', e);
+  }
+})();
+</script>
+
+<script>
 /* PlusOne 무료 재무진단 플로팅 버튼 v2 — 스크립트 하나로 스타일·버튼을 모두 생성 */
 (function(){
   if(window.__poDiagFab)return; window.__poDiagFab=true;
