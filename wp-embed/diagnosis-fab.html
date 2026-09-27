@@ -1,0 +1,35 @@
+<!-- PlusOne 무료 재무진단 플로팅 버튼 (AL Pack > 헤더 & 푸터 > Body 종료 전 코드) -->
+<style>
+#po-diag-fab{position:fixed;right:16px;bottom:76px;z-index:9998;display:flex;align-items:center;gap:8px;height:48px;padding:0 18px 0 12px;border-radius:24px;background:#007CC2;color:#fff!important;text-decoration:none!important;font:700 15px/1 "Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;letter-spacing:0;box-shadow:0 6px 18px rgba(0,60,110,.28);transition:transform .15s ease,background .15s ease}
+#po-diag-fab[hidden]{display:none!important}
+#po-diag-fab:hover{background:#0A8BD6;transform:translateY(-2px)}
+#po-diag-fab:focus-visible{outline:3px solid #8CCBF2;outline-offset:2px}
+#po-diag-fab svg{width:26px;height:26px;flex:none}
+#po-diag-fab .po-badge{position:absolute;top:-7px;left:-4px;background:#FFD43B;color:#1B1606;font-size:10.5px;font-weight:800;padding:3px 6px;border-radius:9px;line-height:1}
+#po-diag-fab::after{content:"";position:absolute;inset:0;border-radius:24px;box-shadow:0 0 0 0 rgba(0,124,194,.55);animation:poPulse 2.4s ease-out 1s 3}
+@keyframes poPulse{0%{box-shadow:0 0 0 0 rgba(0,124,194,.55)}100%{box-shadow:0 0 0 14px rgba(0,124,194,0)}}
+@media (max-width:600px){#po-diag-fab{height:46px;font-size:14px;padding:0 14px 0 10px}}
+@media (prefers-reduced-motion:reduce){#po-diag-fab::after{animation:none}#po-diag-fab{transition:none}}
+</style>
+<a id="po-diag-fab" href="/diagnosis/?ref=site-icon" aria-label="무료 사업자 재무건강 진단하기" hidden>
+  <span class="po-badge">무료</span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3.5" width="14" height="18" rx="2"/><path d="M9 3.5h6v2.5H9z" fill="currentColor"/><path d="M8.5 13.5h2l1.3-2.6 1.8 5 1.4-2.4h1.5"/></svg>
+  <span>재무진단</span>
+</a>
+<script>
+(function(){
+  var fab=document.getElementById('po-diag-fab');
+  if(!fab)return;
+  if(/^\/diagnosis\/?$/.test(location.pathname))return; // 진단 페이지에서는 숨김
+  fab.hidden=false;
+  function place(){
+    var k=document.querySelector('a[href*="pf.kakao.com"]');
+    var el=k,fixed=null;
+    while(el&&el!==document.body){if(getComputedStyle(el).position==='fixed'){fixed=el;break}el=el.parentElement}
+    if(fixed){var r=fixed.getBoundingClientRect();if(r.height>0){fab.style.bottom=(window.innerHeight-r.top+10)+'px';fab.style.right=Math.max(8,window.innerWidth-r.right)+'px';return}}
+    fab.style.bottom='76px';fab.style.right='16px';
+  }
+  place();window.addEventListener('resize',place);window.addEventListener('load',place);setTimeout(place,1500);
+  fab.addEventListener('click',function(){try{if(typeof window.gtag==='function')window.gtag('event','diag_icon_click',{page_path:location.pathname})}catch(e){}});
+})();
+</script>
